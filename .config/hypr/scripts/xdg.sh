@@ -5,7 +5,6 @@
 #  /  \| |_| | |_| |
 # /_/\_\____/ \____|
 #
-
 # Setup Timers
 _sleep1="0.1"
 _sleep2="0.5"
@@ -42,8 +41,8 @@ sleep $_sleep3
 
 # Start xdg-desktop-portal-gtk
 if [ -f /usr/lib/xdg-desktop-portal-gtk ]; then
-    /usr/lib/xdg-desktop-portal-gtk &
-    sleep $_sleep1
+  /usr/lib/xdg-desktop-portal-gtk &
+  sleep $_sleep1
 fi
 
 # Start xdg-desktop-portal

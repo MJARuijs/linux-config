@@ -32,14 +32,16 @@
         "pulseaudio",
         //"backlight",
         "bluetooth",
-        //"network",
+//        "network",
         "battery",
-        "group/hardware",
-        "group/tools",
+//        "group/hardware",
+//        "group/tools",
         "tray",
+        "custom/cliphist",
         "custom/notification",
-        "custom/exit",
-        "custom/ml4w-welcome",
-        "clock"
+        "custom/exit"
+//        "custom/ml4w-welcome"
+
+//        "clock"
     ]
 }
