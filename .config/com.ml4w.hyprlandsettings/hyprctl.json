@@ -1,0 +1,50 @@
+[
+    {
+        "key": "input:repeat_delay",
+        "value": 150
+    },
+    {
+        "key": "input:repeat_rate",
+        "value": 35
+    },
+    {
+        "key": "input:sensitivity",
+        "value": "$MOUSE_SENSITIVITY"
+    },
+    {
+        "key": "decoration:inactive_opacity",
+        "value": 0.75
+    },
+    {
+        "key": "decoration:active_opacity",
+        "value": 0.85
+    },
+    {
+        "key": "general:border_size",
+        "value": 4
+    },
+    {
+        "key": "binds:workspace_center_on",
+        "value": 1
+    },
+    {
+        "key": "general:col.inactive_border",
+        "value": "0x9e24374e"
+    },
+    {
+        "key": "general:col.active_border",
+        "value": "0xff98ccf9"
+    },
+    {
+        "key": "general:gaps_in",
+        "value": 8.0
+    },
+    {
+        "key": "general:gaps_out",
+        "value": 15.0
+    },
+    {
+        "key": "general:gaps_workspaces",
+        "value": 0
+    }
+]
