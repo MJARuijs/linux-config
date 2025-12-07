@@ -21,5 +21,11 @@ for entry in ${entries[@]}; do
   fi
 done
 
-ln -s ~/.config/linux-config/monitors/monitors-$HOSTNAME.conf ~/.config/linux-config/monitors/monitors-hostname.conf
-ln -s ~/.config/linux-config/workspaces/workspaces-$HOSTNAME.conf ~/.config/linux-config/workspaces/workspaces-hostname.conf
+monitor_symlink=~/.config/linux-config/monitors/monitors-hostname.conf
+workspace_symlink=~/.config/linux-config/workspaces/workspaces-hostname.conf
+
+$(rm $monitor_symlink)
+$(rm $workspace_symlink)
+
+ln -s ~/.config/linux-config/monitors/monitors-$HOSTNAME.conf $monitor_symlink
+ln -s ~/.config/linux-config/workspaces/workspaces-$HOSTNAME.conf $workspace_symlink
