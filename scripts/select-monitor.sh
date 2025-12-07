@@ -8,32 +8,39 @@ current_monitor=$((($1 - 1 % $monitor_count) + 1))
 #echo $monitor_count
 #echo $current_monitor
 
-workspace_offset=0;
+workspace_offset=0
 
-if [ "$current_workspace" -lt "6" ]; then
-   workspace_offset=0;
-elif [ "$current_workspace" -lt "11" ]; then
-   workspace_offset=1;
-elif [ "$current_workspace" -lt "16" ]; then
-   workspace_offset=2;
-elif [ "$current_workspace" -lt "21" ]; then
-   workspace_offset=3;
-elif [ "$current_workspace" -lt "26" ]; then
-   workspace_offset=4;
-elif [ "$current_workspace" -lt "31" ]; then
-   workspace_offset=5;
-elif [ "$current_workspace" -lt "36" ]; then
-   workspace_offset=6;
-elif [ "$current_workspace" -lt "41" ]; then
-   workspace_offset=7;
-elif [ "$current_workspace" -lt "46" ]; then
-   workspace_offset=8;
-elif [ "$current_workspace" -lt "51" ]; then
-   workspace_offset=9;
-elif [ "$current_workspace" -lt "56" ]; then
-   workspace_offset=10;
-fi
-
+for ((i = 1; i <= $monitor_count * 10; i++)); do
+  var=$(($monitor_count * $i))
+  if [ "$current_workspace" -le "$var" ]; then
+    workspace_offset=$(($i - 1))
+    break
+  fi
+done
+echo "Offset: " $workspace_offset
+# if [ "$current_workspace" -le "5" ]; then
+#   workspace_offset=0
+# elif [ "$current_workspace" -le "10" ]; then
+#   workspace_offset=1
+# elif [ "$current_workspace" -lt "16" ]; then
+#   workspace_offset=2
+# elif [ "$current_workspace" -lt "21" ]; then
+#   workspace_offset=3
+# elif [ "$current_workspace" -lt "26" ]; then
+#   workspace_offset=4
+# elif [ "$current_workspace" -lt "31" ]; then
+#   workspace_offset=5
+# elif [ "$current_workspace" -lt "36" ]; then
+#   workspace_offset=6
+# elif [ "$current_workspace" -lt "41" ]; then
+#   workspace_offset=7
+# elif [ "$current_workspace" -lt "46" ]; then
+#   workspace_offset=8
+# elif [ "$current_workspace" -lt "51" ]; then
+#   workspace_offset=9
+# elif [ "$current_workspace" -lt "56" ]; then
+#   workspace_offset=10
+# fi
 
 new_monitor=$(($current_monitor + $workspace_offset * $monitor_count))
 
