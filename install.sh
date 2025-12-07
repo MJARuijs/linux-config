@@ -1,4 +1,4 @@
-source_dir=~/.config/marc-config/.config
+source_dir=~/.config/linux-config/.config
 destination_dir=~/.config/
 
 entries=("$source_dir"/*)
