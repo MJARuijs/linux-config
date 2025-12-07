@@ -8,8 +8,15 @@ for entry in ${entries[@]}; do
 
   dest=$destination_dir$file_name
 
+  echo "Dest: " $dest
   if [[ ! -d $dest || -z "$(ls -A $dest)" && ! -f $dest ]]; then
-    $(rmdir $dest)
+    if [[ -d $dest ]]; then
+      echo "Removing dir " $dest
+      $(rmdir $dest)
+    else
+      echo "Removing file " $dest
+      $(rm $dest)
+    fi
     ln -s $entry $destination_dir
   fi
 done
