@@ -29,3 +29,4 @@ $(rm $workspace_symlink)
 
 ln -s ~/.config/linux-config/monitors/monitors-$HOSTNAME.conf $monitor_symlink
 ln -s ~/.config/linux-config/workspaces/workspaces-$HOSTNAME.conf $workspace_symlink
+hyprctl reload
