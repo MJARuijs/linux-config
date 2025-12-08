@@ -1,3 +1,4 @@
 .config/hypr/monitors.conf
 monitors/monitors-hostname.conf
 workspaces/workspaces-hostname.conf
+workspaces/workspaces.conf
