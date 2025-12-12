@@ -2,3 +2,4 @@
 monitors/monitors-hostname.conf
 workspaces/workspaces-hostname.conf
 workspaces/workspaces.conf
+variables.sh
