@@ -12,6 +12,10 @@
         "value": "$MOUSE_SENSITIVITY"
     },
     {
+	    "key": "input:touchpad:natural_scroll",
+	    "value": true 
+    },
+    {
         "key": "decoration:inactive_opacity",
         "value": 0.75
     },
