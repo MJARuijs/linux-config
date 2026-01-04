@@ -1,0 +1,67 @@
+{
+  // General Settings
+  "layer": "top",
+  "margin-top": 0,
+  "margin-bottom": 0,
+  "margin-left": 8,
+  "margin-right": 8,
+  "spacing": 0,
+  // Load Modules
+  "include": [
+    "~/.config/ml4w/settings/waybar-quicklinks.json",
+    "~/.config/waybar/modules.json"
+  ],
+  // Modules Left
+  "modules-left": [
+    //"custom/appmenu",
+    "hyprland/workspaces",
+    //"wlr/taskbar",
+    //"group/quicklinks",
+    "custom/nowplaying"
+    //        "custom/empty"
+  ],
+  // Modules Center
+  "modules-center": [
+    "clock",
+    //"hyprland/window",
+    "custom/empty"
+  ],
+  // Modules Right    
+  "modules-right": [
+    "custom/updates",
+    "pulseaudio",
+    //"backlight",
+    "bluetooth",
+    "network",
+    "battery",
+    //        "group/hardware",
+    //        "group/tools",
+    "tray",
+    "custom/cliphist",
+    "custom/notification",
+    "custom/exit"
+    //        "custom/ml4w-welcome"
+    //        "clock"
+  ],
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": "",
+      "5": "",
+      "default": "3",
+      "active": ""
+    },
+    "persistent-workspaces": {
+      "*": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    }
+  }
+}
