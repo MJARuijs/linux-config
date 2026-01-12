@@ -1,1 +1,2 @@
 source ~/.config/linux-config/variables.sh
+export PATH=$PATH:~/.config/emacs/bin

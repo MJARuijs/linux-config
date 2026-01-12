@@ -64,7 +64,7 @@ window#waybar {
 
 #workspaces button.active {
   /* color: @color; */
-    color: @primary;
+    color: @surface_tint;
     /* background: @primary; */
     /* border-radius: 12px; */
     /* transition: all 0.3s ease-in-out; */
