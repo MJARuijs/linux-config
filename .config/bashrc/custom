@@ -1,2 +1,5 @@
 source ~/.config/linux-config/variables.sh
 export PATH=$PATH:~/.config/emacs/bin
+alias c='clear;fastfetch'
+#alias nv='neovide --fork $1;exit'
+alias nv='. ~/.config/linux-config/scripts/launch_neovide.sh'

@@ -36,10 +36,11 @@
     //"backlight",
     "bluetooth",
     "network",
-    "battery"
+    "custom/vpn",
+    "battery",
     //        "group/hardware",
     //        "group/tools",
-    // "tray"
+    "tray"
     // "custom/cliphist",
     // "custom/notification",
     // "custom/exit"
@@ -54,7 +55,7 @@
       "3": "",
       "4": "",
       "5": "",
-      "default": "3",
+      "default": "",
       "active": ""
     },
     "persistent-workspaces": {

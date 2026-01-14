@@ -41,8 +41,6 @@ window#waybar {
  * ----------------------------------------------------- */
 
 #workspaces {
-  /* margin: 0px 7px 0px 0px; */
-  /* min-width: 210px; */
   color: @on_surface;
   padding: 0px 10px 0px 7px;
   margin: 0px 0px 0px 0px;
@@ -51,53 +49,26 @@ window#waybar {
 }
 
 #workspaces button {
-  /* padding: 0px 6px; */
   padding: 0px 0px;
   margin: 0px 2px;
-  /* color: transparent; */
   color: #ffffff;
-  /* background-color: #ff0000; */
   transition: all 0.3s ease-in-out;
-  /* border: 2px solid @primary; */
   border: none;
 }
 
-#workspaces button.active {
-  /* color: @color; */
-    color: @surface_tint;
-    /* background: @primary; */
-    /* border-radius: 12px; */
-    /* transition: all 0.3s ease-in-out; */
-    /* border-color: @primary; */
-    /* min-width: 30px; */
-  /* color: @primary; */
-  /* background: @primary; */
-  /* border-radius: 12px; */
-  /* transition: all 0.3s ease-in-out; */
-  /* border-color: @primary; */
-  /* min-width: 30px; */
+#workspaces button.empty {
+  color: #999999;
 }
 
-/* #workspaces button + button.active { */
-/* #workspaces button:has(+ button) { */
-/*   color: #ff0000; */
-/* } */
+#workspaces button.active {
+  color: @primary;
+}
 
-/* #workspaces button:last-of-type { */
-/*   color: #0000ff; */
-/* } */
-/* #workspaces button.active + button { */
-/*   color: #ff0000; */
-/* } */
 #workspaces button.inactive {
   color: @border_color;
 }
 
 #workspaces button:hover {
-  /* color: @on_surface; */
-  /* background: @primary_container; */
-  /* border-radius: 15px; */
-  /* border-color: @primary; */
   box-shadow: none;
 }
 
@@ -517,7 +488,16 @@ window#waybar.empty #window {
   background-color: @background;
   color: @on_surface;
 }
-
+/*-----------------------------------------------------
+ * VPN
+ * ----------------------------------------------------*/
+#custom-vpn {
+     font-family: "JetBrainsMono Nerd Font";
+     font-size: 24px;
+     padding-left: 2px;
+     padding-right: 2px;
+     transition: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
 /* -----------------------------------------------------
  * Bluetooth
  * ----------------------------------------------------- */
