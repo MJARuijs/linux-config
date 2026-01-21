@@ -7,6 +7,7 @@ monitor_array=($monitors)
 workspace_monitor_assignment=$(cat "workspace-monitor-assignment.txt")
 workspace_monitor_array=($workspace_monitor_assignment)
 
+echo $monitors
 workspace_count=10
 workspace_conf=
 
@@ -29,7 +30,7 @@ for ((i = 0; i < $(($monitor_count * $workspace_count)); i += $monitor_count)); 
   done
 done
 
-echo "$workspace_conf" | tee workspaces.conf
+echo "$workspace_conf" | tee ~/.config/hypr/workspaces.conf
 
 ##!/usr/bin/env bash
 #

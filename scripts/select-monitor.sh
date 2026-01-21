@@ -4,9 +4,9 @@ monitor_count=$(hyprctl monitors all | grep -o Monitor | wc -l)
 
 current_monitor=$((($1 - 1 % $monitor_count) + 1))
 
-#echo $current_workspace
-#echo $monitor_count
-#echo $current_monitor
+# echo $current_workspace
+# echo $monitor_count
+# echo $current_monitor
 
 workspace_offset=0
 

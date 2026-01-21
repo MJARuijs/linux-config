@@ -21,12 +21,14 @@ for entry in ${entries[@]}; do
   fi
 done
 
-monitor_symlink=~/.config/linux-config/monitors/monitors-hostname.conf
-workspace_symlink=~/.config/linux-config/workspaces/workspaces-hostname.conf
+# monitor_symlink=~/.config/linux-config/monitors/monitors-hostname.conf
+# workspace_symlink=~/.config/linux-config/workspaces/workspaces-hostname.conf
 
-$(rm $monitor_symlink)
-$(rm $workspace_symlink)
+# $(rm $monitor_symlink)
+# $(rm $workspace_symlink)
 
-ln -s ~/.config/linux-config/monitors/monitors-$HOSTNAME.conf $monitor_symlink
-ln -s ~/.config/linux-config/workspaces/workspaces-$HOSTNAME.conf $workspace_symlink
+# ln -s ~/.config/linux-config/monitors/monitors-$HOSTNAME.conf "~/.config/hypr/monitors.conf"
+# ln -s ~/.config/linux-config/workspaces/workspaces-$HOSTNAME.conf "~/.config/hypr/workspaces.conf"
+# ln -s ~/.config/linux-config/monitors/monitors-$HOSTNAME.conf $monitor_symlink
+# ln -s ~/.config/linux-config/workspaces/workspaces-$HOSTNAME.conf $workspace_symlink
 hyprctl reload
