@@ -25,7 +25,7 @@
     },
     {
         "key": "general:border_size",
-        "value": 4
+        "value": 2
     },
     {
         "key": "binds:workspace_center_on",
@@ -37,7 +37,7 @@
     },
     {
         "key": "general:col.active_border",
-        "value": "0xff98ccf9"
+        "value": "0xff4ddad7"
     },
     {
         "key": "general:gaps_in",

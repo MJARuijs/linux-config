@@ -51,7 +51,7 @@ if monitor_count == nil or hyprctl_monitors == nil then
 	return
 end
 
-for i = 1, 15, 3 do
+for i = 1, #hyprctl_monitors, 3 do
 	table.insert(monitors, { hyprctl_monitors[i], hyprctl_monitors[i + 1], hyprctl_monitors[i + 2] })
 end
 
