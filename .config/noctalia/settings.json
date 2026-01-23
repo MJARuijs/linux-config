@@ -17,7 +17,7 @@
         "sortByMostUsed": true,
         "terminalCommand": "xterm -e",
         "useApp2Unit": false,
-        "viewMode": "list"
+        "viewMode": "grid"
     },
     "audio": {
         "cavaFrameRate": 30,
@@ -26,7 +26,7 @@
         "preferredPlayer": "",
         "visualizerType": "wave",
         "volumeOverdrive": false,
-        "volumeStep": 5
+        "volumeStep": 1
     },
     "bar": {
         "backgroundOpacity": 1,
@@ -41,9 +41,9 @@
         ],
         "outerCorners": true,
         "position": "top",
-        "showCapsule": true,
+        "showCapsule": false,
         "showOutline": false,
-        "useSeparateOpacity": true,
+        "useSeparateOpacity": false,
         "widgets": {
             "center": [
                 {
@@ -54,10 +54,6 @@
                     "tooltipFormat": "HH:mm ddd, MMM dd",
                     "useCustomFont": false,
                     "usePrimaryColor": true
-                },
-                {
-                    "displayMode": "alwaysShow",
-                    "id": "VPN"
                 }
             ],
             "left": [
@@ -106,10 +102,14 @@
                     "showProgressRing": true,
                     "showVisualizer": true,
                     "useFixedWidth": false,
-                    "visualizerType": "wave"
+                    "visualizerType": "linear"
                 }
             ],
             "right": [
+                {
+                    "displayMode": "alwaysShow",
+                    "id": "VPN"
+                },
                 {
                     "blacklist": [
                     ],
@@ -118,7 +118,6 @@
                     "hidePassive": false,
                     "id": "Tray",
                     "pinned": [
-                        "nm-applet"
                     ]
                 },
                 {
@@ -159,7 +158,7 @@
     },
     "brightness": {
         "brightnessStep": 5,
-        "enableDdcSupport": false,
+        "enableDdcSupport": true,
         "enforceMinimum": true
     },
     "calendar": {
@@ -272,7 +271,7 @@
         "allowPanelsOnScreenWithoutBar": true,
         "animationDisabled": false,
         "animationSpeed": 1,
-        "avatarImage": "/home/marc/Pictures/patrick2.png",
+        "avatarImage": "/home/marc/Pictures/patrick.png",
         "boxRadiusRatio": 1,
         "compactLockScreen": false,
         "dimmerOpacity": 0.2,
@@ -332,7 +331,7 @@
         "forced": false,
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
-        "nightTemp": "4000"
+        "nightTemp": "5541"
     },
     "notifications": {
         "backgroundOpacity": 1,
@@ -452,10 +451,6 @@
         "activeTemplates": [
             {
                 "enabled": true,
-                "id": "alacritty"
-            },
-            {
-                "enabled": true,
                 "id": "qt"
             },
             {
@@ -465,6 +460,22 @@
             {
                 "enabled": true,
                 "id": "hyprland"
+            },
+            {
+                "enabled": true,
+                "id": "pywalfox"
+            },
+            {
+                "enabled": true,
+                "id": "alacritty"
+            },
+            {
+                "enabled": true,
+                "id": "kcolorscheme"
+            },
+            {
+                "enabled": true,
+                "id": "yazi"
             }
         ],
         "enableUserTemplates": true
@@ -485,7 +496,7 @@
         "wifiDetailsViewMode": "grid"
     },
     "wallpaper": {
-        "directory": "/home/marc/.config/linux-config/wallpapers",
+        "directory": "/home/marc/Pictures/Wallpapers",
         "enableMultiMonitorDirectories": false,
         "enabled": true,
         "fillColor": "#000000",
