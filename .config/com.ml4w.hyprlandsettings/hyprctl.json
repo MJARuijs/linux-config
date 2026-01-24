@@ -32,14 +32,6 @@
         "value": 1
     },
     {
-        "key": "general:col.inactive_border",
-        "value": "0x9e24374e"
-    },
-    {
-        "key": "general:col.active_border",
-        "value": "0xff4ddad7"
-    },
-    {
         "key": "general:gaps_in",
         "value": 8.0
     },
