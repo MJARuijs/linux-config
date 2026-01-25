@@ -1,37 +1,31 @@
-local function getFileLines(filePath)
-	local lines = {}
-	for line in io.lines(filePath) do
-		lines[#lines + 1] = line
-	end
-	return lines
-end
+local module_folder = "/home/marc/.config/linux-config/scripts/"
+package.path = module_folder .. "?.lua;" .. package.path
+util = require("util")
 
-local function trimString(s)
-	return (s:gsub("^%s*(.-)%s*$", "%1"))
-end
-
-function string.startsWith(s, start)
-	return string.sub(s, 1, string.len(start)) == start
-end
+local log = ""
 
 local function createLuaTable(lines, separator)
 	local fileTable = {}
-	for k, v in pairs(lines) do
+
+	for _, v in pairs(lines) do
 		if #v == 0 then
 			goto continue
 		end
-		local trimmedLine = trimString(v)
+
+		local trimmedLine = v:trim()
+
 		if not string.startsWith(trimmedLine, "--") then
-			local splitValues = string.gmatch(trimmedLine, "([^" .. separator .. "]+)")
+			-- local splitValues = string.gmatch(trimmedLine, "([^" .. separator .. "]+)")
+			local splitValues = trimmedLine:split(separator)
 			local key = nil
 			local value = nil
 
 			local i = 1
 			for splitValue in splitValues do
 				if i == 1 then
-					key = trimString(splitValue:gsub('"', ""))
+					key = splitValue:gsub('"', ""):trim()
 				else
-					value = trimString(splitValue)
+					value = splitValue:trim()
 				end
 				i = i + 1
 			end
@@ -42,6 +36,7 @@ local function createLuaTable(lines, separator)
 		end
 		::continue::
 	end
+
 	return fileTable
 end
 
@@ -51,35 +46,53 @@ end
 local function sleep(n)
 	os.execute("sleep " .. tonumber(n))
 end
-sleep(2)
-local noctaliaColors = getFileLines("/home/marc/.config/noctalia/colors.json")
-local nvimColors = getFileLines("/home/marc/.config/nvim/colorschemes/intellij.nvim/lua/intellij/palette.lua")
 
-nvimTable = createLuaTable(nvimColors, "=")
-noctaliaTable = createLuaTable(noctaliaColors, ":")
+sleep(1)
 
-local index = 0
-for k, v in pairs(noctaliaTable) do
+local noctaliaColors = util.getFileLines("/home/marc/.config/noctalia/colors.json")
+local nvimColors = util.getFileLines("/home/marc/.config/nvim/colorschemes/intellij.nvim/lua/intellij/my_palette.lua")
+
+-- for c in nvimColors do
+-- 	print(c)
+-- 	log = log .. c .. "\n"
+-- end
+
+local nvimTable = createLuaTable(nvimColors, "=")
+local noctaliaTable = createLuaTable(noctaliaColors, ":")
+
+log = log .. "\n"
+log = log .. "\n"
+
+for k, v in pairs(nvimTable) do
+	log = log .. "Key: " .. k .. ", value: " .. v .. "\n"
+end
+
+log = log .. "\n"
+log = log .. "\n"
+-- local index = 0
+for k, _ in pairs(noctaliaTable) do
 	if nvimTable[k] ~= nil then
-		nvimTable[k] = nil
+		log = log .. "Setting to Nil: " .. k .. "\n"
+		-- nvimTable[k] = nil
 	end
-	index = index + 1
+	-- index = index + 1
 end
 local file_content = "return {\n"
-
+local noctalia_content = ""
 for k, v in pairs(noctaliaTable) do
-	file_content = file_content .. "\t" .. k .. " = " .. v .. ",\n"
+	noctalia_content = noctalia_content .. "\t" .. k .. " = " .. v .. ",\n"
 end
-file_content = file_content .. "\n"
+-- file_content = file_content .. "\n"
+local nvim_content = ""
 for k, v in pairs(nvimTable) do
-	file_content = file_content .. "\t" .. k .. " = " .. v .. ",\n"
+	nvim_content = nvim_content .. "\t" .. k .. " = " .. v .. ",\n"
 end
 
-file_content = file_content .. "}"
-local nvimColorFiles = io.open("/home/marc/.config/nvim/colorschemes/intellij.nvim/lua/intellij/palette.lua", "w+")
-if nvimColorFiles == nil then
-	return
-end
-nvimColorFiles:write(file_content)
-nvimColorFiles:close()
--- os.execute("notify-send Updated Neovim-theme ")
+file_content = file_content .. noctalia_content .. "\n" .. nvim_content .. "}"
+
+util.write_to_file("/home/marc/.config/nvim/colorschemes/intellij.nvim/lua/intellij/palette.lua", file_content)
+util.write_to_file("/home/marc/noctalua.txt", noctalia_content)
+util.write_to_file("/home/marc/nvim.txt", nvim_content)
+util.write_to_file("/home/marc/log.txt", log)
+
+os.execute("lua /home/marc/.config/linux-config/scripts/nvim-server.lua")

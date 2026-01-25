@@ -1,13 +1,4 @@
-local os_command = function(command)
-	local handle = io.popen(command)
-	if handle == nil then
-		return nil
-	end
-
-	local result = handle:read("*a")
-	handle:close()
-	return result
-end
+require("util")
 
 local pids = os_command("pidof nvim | jq")
 if pids == nil then

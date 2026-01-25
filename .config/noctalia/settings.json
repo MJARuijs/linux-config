@@ -17,7 +17,7 @@
         "sortByMostUsed": true,
         "terminalCommand": "xterm -e",
         "useApp2Unit": false,
-        "viewMode": "grid"
+        "viewMode": "list"
     },
     "audio": {
         "cavaFrameRate": 30,
@@ -118,6 +118,7 @@
                     "hidePassive": false,
                     "id": "Tray",
                     "pinned": [
+                        "Bluetooth Enabled"
                     ]
                 },
                 {
@@ -181,7 +182,7 @@
         "darkMode": true,
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
-        "matugenSchemeType": "scheme-fruit-salad",
+        "matugenSchemeType": "scheme-tonal-spot",
         "predefinedScheme": "Gruvbox",
         "schedulingMode": "off",
         "useWallpaperColors": true
@@ -506,21 +507,21 @@
         ],
         "overviewEnabled": false,
         "panelPosition": "follow_bar",
-        "randomEnabled": false,
-        "randomIntervalSec": 60,
+        "randomEnabled": true,
+        "randomIntervalSec": 1800,
         "recursiveSearch": false,
         "setWallpaperOnAllMonitors": true,
         "solidColor": "#ff0000",
         "transitionDuration": 1500,
         "transitionEdgeSmoothness": 0.05,
-        "transitionType": "random",
+        "transitionType": "disc",
         "useSolidColor": false,
         "useWallhaven": true,
         "wallhavenApiKey": "",
         "wallhavenCategories": "111",
         "wallhavenOrder": "desc",
         "wallhavenPurity": "100",
-        "wallhavenQuery": "nature",
+        "wallhavenQuery": "golden hour",
         "wallhavenRatios": "",
         "wallhavenResolutionHeight": "",
         "wallhavenResolutionMode": "atleast",
