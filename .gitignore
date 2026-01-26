@@ -8,4 +8,5 @@ variables.sh
 .config/gtk-4.0/gtk.css
 .config/hypr/noctalia/noctalia-colors.conf
 .config/noctalia/colors.json
-.config/qt6ct/colors.noctalia.conf
+.config/qt6ct/colors/noctalia.conf
+hoi.txt
