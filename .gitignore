@@ -4,3 +4,8 @@
 # workspaces/workspaces-hostname.conf
 # workspaces/workspaces.conf
 variables.sh
+.config/gtk-3.0/gtk.css
+.config/gtk-4.0/gtk.css
+.config/hypr/noctalia/noctalia-colors.conf
+.config/noctalia/colors.json
+.config/qt6ct/colors.noctalia.conf
