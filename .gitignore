@@ -4,6 +4,7 @@ monitors/frame-hostname.conf
 # workspaces/workspaces-hostname.conf
 # workspaces/workspaces.conf
 variables.sh
+.config/alacritty/themes/noctalia.toml
 .config/gtk-3.0/gtk.css
 .config/gtk-4.0/gtk.css
 .config/hypr/noctalia/noctalia-colors.conf
