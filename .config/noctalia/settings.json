@@ -6,13 +6,13 @@
         "customLaunchPrefixEnabled": false,
         "enableClipPreview": true,
         "enableClipboardHistory": false,
-        "iconMode": "tabler",
+        "iconMode": "native",
         "ignoreMouseInput": false,
         "pinnedApps": [
         ],
         "position": "top_center",
         "screenshotAnnotationTool": "",
-        "showCategories": true,
+        "showCategories": false,
         "showIconBackground": false,
         "sortByMostUsed": true,
         "terminalCommand": "xterm -e",
@@ -272,7 +272,7 @@
         "allowPanelsOnScreenWithoutBar": true,
         "animationDisabled": false,
         "animationSpeed": 1,
-        "avatarImage": "/home/marc/Pictures/patrick2.png",
+        "avatarImage": "",
         "boxRadiusRatio": 1,
         "compactLockScreen": false,
         "dimmerOpacity": 0.2,
@@ -477,6 +477,10 @@
             {
                 "enabled": true,
                 "id": "yazi"
+            },
+            {
+                "enabled": true,
+                "id": "discord"
             }
         ],
         "enableUserTemplates": true
@@ -508,7 +512,7 @@
         "overviewEnabled": false,
         "panelPosition": "follow_bar",
         "randomEnabled": true,
-        "randomIntervalSec": 1800,
+        "randomIntervalSec": 3600,
         "recursiveSearch": false,
         "setWallpaperOnAllMonitors": true,
         "solidColor": "#ff0000",
@@ -516,17 +520,17 @@
         "transitionEdgeSmoothness": 0.05,
         "transitionType": "disc",
         "useSolidColor": false,
-        "useWallhaven": true,
+        "useWallhaven": false,
         "wallhavenApiKey": "",
         "wallhavenCategories": "111",
         "wallhavenOrder": "desc",
         "wallhavenPurity": "100",
-        "wallhavenQuery": "golden hour",
+        "wallhavenQuery": "orange",
         "wallhavenRatios": "",
         "wallhavenResolutionHeight": "",
         "wallhavenResolutionMode": "atleast",
         "wallhavenResolutionWidth": "",
         "wallhavenSorting": "relevance",
-        "wallpaperChangeMode": "random"
+        "wallpaperChangeMode": "alphabetical"
     }
 }
