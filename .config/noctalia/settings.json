@@ -78,7 +78,7 @@
                     "showCpuTemp": true,
                     "showCpuUsage": true,
                     "showDiskUsage": false,
-                    "showGpuTemp": false,
+                    "showGpuTemp": true,
                     "showLoadAverage": false,
                     "showMemoryAsPercent": false,
                     "showMemoryUsage": true,
@@ -335,7 +335,7 @@
         "nightTemp": "5541"
     },
     "notifications": {
-        "backgroundOpacity": 1,
+        "backgroundOpacity": 0.73,
         "criticalUrgencyDuration": 15,
         "enableKeyboardLayoutToast": true,
         "enableMediaToast": false,
@@ -399,7 +399,7 @@
                 "action": "hibernate",
                 "command": "",
                 "countdownEnabled": true,
-                "enabled": true
+                "enabled": false
             },
             {
                 "action": "reboot",
@@ -428,11 +428,11 @@
         "cpuCriticalThreshold": 90,
         "cpuPollingInterval": 3000,
         "cpuWarningThreshold": 80,
-        "criticalColor": "",
+        "criticalColor": "#ffb4ab",
         "diskCriticalThreshold": 90,
         "diskPollingInterval": 3000,
         "diskWarningThreshold": 80,
-        "enableDgpuMonitoring": false,
+        "enableDgpuMonitoring": true,
         "externalMonitor": "resources || missioncenter || jdsystemmonitor || corestats || system-monitoring-center || gnome-system-monitor || plasma-systemmonitor || mate-system-monitor || ukui-system-monitor || deepin-system-monitor || pantheon-system-monitor",
         "gpuCriticalThreshold": 90,
         "gpuPollingInterval": 3000,
@@ -445,8 +445,8 @@
         "tempCriticalThreshold": 90,
         "tempPollingInterval": 3000,
         "tempWarningThreshold": 80,
-        "useCustomColors": false,
-        "warningColor": ""
+        "useCustomColors": true,
+        "warningColor": "#f6b8ae"
     },
     "templates": {
         "activeTemplates": [
