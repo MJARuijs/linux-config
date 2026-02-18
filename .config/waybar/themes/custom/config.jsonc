@@ -8,7 +8,6 @@
   "spacing": 0,
   // Load Modules
   "include": [
-    "~/.config/ml4w/settings/waybar-quicklinks.json",
     "~/.config/waybar/modules.json"
   ],
   // Modules Left
@@ -38,7 +37,7 @@
     "network",
     "custom/vpn",
     "battery",
-    //        "group/hardware",
+    // "group/hardware",
     //        "group/tools",
     "tray"
     // "custom/cliphist",
@@ -58,14 +57,14 @@
       "default": "",
       "active": ""
     },
-    "persistent-workspaces": {
-      "*": [
-        1,
-        2,
-        3,
-        4,
-        5
-      ]
-    }
+    // "persistent-workspaces": {
+    //   "*": [
+    //     1,
+    //     2,
+    //     3,
+    //     4,
+    //     5
+    //   ]
+    // }
   }
 }
