@@ -1,5 +1,6 @@
-source ~/.config/linux-config/variables.sh
-export PATH=$PATH:~/.config/emacs/bin
+source ~/linux-config/variables.sh
 alias c='clear;fastfetch'
+alias cl='clear;fastfetch;ls'
+alias activate='sh ~/linux-config/scripts/activate-aws-profile.sh'
 #alias nv='neovide --fork $1;exit'
-alias nv='. ~/.config/linux-config/scripts/launch_neovide.sh'
+alias nv='. ~/linux-config/scripts/launch_neovide.sh'

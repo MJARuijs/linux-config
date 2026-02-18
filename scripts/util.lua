@@ -1,7 +1,15 @@
 local M = {}
 
+-- Source - https://stackoverflow.com/a
+-- Posted by Yu Hao, modified by community. See post 'Timeline' for change history
+-- Retrieved 2026-01-24, License - CC BY-SA 3.0
+function M.sleep(n)
+	os.execute("sleep " .. tonumber(n))
+end
+
 function M.os_command(command)
 	local handle = io.popen(command)
+	print("EXECUTING OS COMMAND: " .. command)
 	if handle == nil then
 		return nil
 	end
@@ -20,7 +28,12 @@ function string.startsWith(s, start)
 end
 
 function string.split(s, separator)
-	return string.gmatch(s, "([^" .. separator .. "]+)")
+	local iterator = string.gmatch(s, "([^" .. separator .. "]+)")
+	local results = {}
+	for value in iterator do
+		table.insert(results, value)
+	end
+	return results
 end
 
 function M.write_to_file(file_name, content)
@@ -51,7 +64,7 @@ function M.getFileLines(filePath)
 	file_log = file_log .. "\n"
 	file_log = file_log .. "\n"
 	file_log = file_log .. "\n"
-	for line in file_lines do
+	for _, line in pairs(file_lines) do
 		if line ~= nil then
 			-- print("FILELINE: " .. line)
 			file_log = file_log .. line .. "\n"
@@ -59,7 +72,7 @@ function M.getFileLines(filePath)
 		end
 	end
 
-	M.write_to_file("/home/marc/file_log.txt", file_log)
+	-- M.write_to_file("/home/marc/file_log.txt", file_log)
 	return lines
 end
 return M

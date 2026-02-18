@@ -301,7 +301,7 @@
         "screenLock": "",
         "screenUnlock": "",
         "session": "",
-        "wallpaperChange": "lua /home/marc/.config/linux-config/scripts/update_theme.lua "
+        "wallpaperChange": "lua /home/marc/linux-config/scripts/update_theme.lua "
     },
     "location": {
         "analogClockInCalendar": false,

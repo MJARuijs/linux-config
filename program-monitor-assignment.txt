@@ -1,0 +1,2 @@
+dbeaver|2
+nautilus|2

@@ -14,6 +14,7 @@ current_cursor_position=$(hyprctl cursorpos)
 parsed_current_cursor_position=${current_cursor_position//, / }
 cursor_x=-1
 cursor_y=-1
+
 for t in $parsed_current_cursor_position; do
     if [ $cursor_x == -1 ]; then
         cursor_x=$t
@@ -23,19 +24,20 @@ for t in $parsed_current_cursor_position; do
 done
 
 target_workspace=$(((((($current_workspace - 1)) % $monitor_count)) + first_monitor_workspace_index + 1))
-# echo "Target workspace: $target_workspace"
 
 # Look for floating windows first
-current_window=$(hyprctl clients -j | jq -r ".[] | select(.monitor == 0 and .workspace.id == $target_workspace and .at[0] <= $cursor_x and (.at[0] + .size[0]) >= $cursor_x and .at[1] <= $cursor_y and (.at[1] + .size[1]) >= $cursor_y and .floating == true) | .address")
+current_window=$(hyprctl clients -j | jq -r ".[] | select(.workspace.id == $target_workspace and .at[0] <= $cursor_x and (.at[0] + .size[0]) >= $cursor_x and .at[1] <= $cursor_y and (.at[1] + .size[1]) >= $cursor_y and .floating == true) | .address")
 
 # If no floating window was found, look for a FullScreen window
 if [[ -z "$current_window" ]]; then
-    current_window=$(hyprctl clients -j | jq -r ".[] | select(.monitor == 0 and .workspace.id == $target_workspace and .at[0] <= $cursor_x and (.at[0] + .size[0]) >= $cursor_x and .at[1] <= $cursor_y and (.at[1] + .size[1]) >= $cursor_y and .fullscreen == 2) | .address")
+    current_window=$(hyprctl clients -j | jq -r ".[] | select(.workspace.id == $target_workspace and .at[0] <= $cursor_x and (.at[0] + .size[0]) >= $cursor_x and .at[1] <= $cursor_y and (.at[1] + .size[1]) >= $cursor_y and .fullscreen == 2) | .address")
+    # echo "currentwindow:" $current_window
 fi
 
 # If no fullscreen window was found either, look for tiled windows
 if [[ -z "$current_window" ]]; then
-    current_window=$(hyprctl clients -j | jq -r ".[] | select(.monitor == 0 and .workspace.id == $target_workspace and .at[0] <= $cursor_x and (.at[0] + .size[0]) >= $cursor_x and .at[1] <= $cursor_y and (.at[1] + .size[1]) >= $cursor_y) | .address")
+    current_window=$(hyprctl clients -j | jq -r ".[] | select(.workspace.id == $target_workspace and .at[0] <= $cursor_x and (.at[0] + .size[0]) >= $cursor_x and .at[1] <= $cursor_y and (.at[1] + .size[1]) >= $cursor_y) | .address")
+    # echo "currentwindow:" $current_window
 fi
 
 for ((i = $monitor_count; i > 0; i--)); do
