@@ -4,3 +4,20 @@ live_config_reload = true
 
 [window]
 padding = { x = 20, y = 20 }
+# opacity = 0.7
+# dynamic_padding = false 
+
+[font]
+size = 12
+normal = { family = "JetBrainsMono NF", style = "mono"}
+
+# [font.normal]
+# # family = "JetBrains Mono"
+# family = "firacodemono"
+
+# family = "monospace"
+
+# [font]
+# normal = {family = "JetBrainsMono Nerd Font", style = "regular"}
+# x = 20
+# y = 60
