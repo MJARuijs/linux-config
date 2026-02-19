@@ -16,8 +16,10 @@
 
   "mSurfaceVariant": "#{{colors.surface_variant.default.hex_stripped}}",
   "mOnSurfaceVariant": "#{{colors.on_surface_variant.default.hex_stripped}}",
-  
+ 
   "mOutline": "#{{colors.outline.default.hex_stripped}}",
   "mShadow": "#{{colors.shadow.default.hex_stripped}}",
 
-} 
+  "mHover": "#{{colors.tertiary.default.hex_stripped}}",
+  "mOnHover": "#{{colors.on_tertiary.default.hex_stripped}}"
+}
