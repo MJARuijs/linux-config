@@ -13,3 +13,10 @@ variables.sh
 .config/qt6ct/colors/noctalia.conf
 .config/ohmyposh/colors.json
 .config/ohmyposh/EDM115-newline.omp.json
+.config/rofi/colors.rasi
+.config/swaync/colors.css
+.config/walker/colors.css
+.config/waybar/colors.css
+.config/waypaper/colors.css
+.config/wlogout/colors.css
+current_wallpaper
