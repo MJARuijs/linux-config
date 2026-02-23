@@ -19,4 +19,6 @@ variables.sh
 .config/waybar/colors.css
 .config/waypaper/colors.css
 .config/wlogout/colors.css
+.config/hypr/matugen.conf
+.config/ml4w/colors/*
 current_wallpaper
