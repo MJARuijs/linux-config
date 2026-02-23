@@ -4,7 +4,7 @@ Description=awww daemon
 [Service]
 Type=simple
 ExecStart=/home/marc/Software/awww/target/release/awww-daemon
-Restart=on-failure
+Restart=always
 
 [Install]
 WantedBy=multi-user.target
