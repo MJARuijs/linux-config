@@ -2,13 +2,26 @@
 
 [templates.hyprland]
 input_path = '~/.config/matugen/templates/hyprland-colors.conf'
-output_path = '~/.config/hypr/colors.conf'
-post_hook = 'hyprctl reload'
+output_path = '~/.config/hypr/matugen.conf'
+post_hook = "lua $HOME/linux-config/scripts/reload-hyprland-theme.lua"
+# post_hook = 'hyprctl reload'
 
 [templates.noctalia]
 input_path = "~/.config/matugen/templates/noctalia.json"
 output_path = "~/.config/noctalia/colors.json"
-post_hook = 'lua ~/linux-config/scripts/update_theme.lua'
+
+[templates.alacritty]
+input_path = "~/.config/matugen/templates/alacritty.toml"
+output_path = "~/.config/alacritty/themes/theme.toml"
+
+[templates.nvim]
+input_path = "~/.config/matugen/templates/nvim.lua"
+output_path = "~/.config/nvim/colorschemes/intellij.nvim/lua/intellij/matugen.lua"
+post_hook = "lua ~/linux-config/scripts/reload-nvim-colorscheme.lua"
+
+[templates.eww]
+input_path = "~/.config/matugen/templates/eww.scss"
+output_path = "~/.config/eww/colors.scss"
 
 [templates.waybar]
 input_path = '~/.config/matugen/templates/colors.css'
@@ -27,8 +40,9 @@ input_path = '~/.config/matugen/templates/gtk-colors.css'
 output_path = '~/.config/gtk-4.0/colors.css'
 
 [templates.pywalfox]
-input_path = '~/.config/matugen/templates/pywalfox-colors.json'
+input_path = '~/.config/matugen/templates/firefox.json'
 output_path = '~/.cache/wal/colors.json'
+post_hook = "pywalfox update"
 
 [templates.wlogout]
 input_path = '~/.config/matugen/templates/colors.css'

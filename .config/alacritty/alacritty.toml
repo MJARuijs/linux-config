@@ -1,5 +1,5 @@
 [general]
-import = ["~/.config/alacritty/themes/noctalia.toml"]
+import = ["themes/theme.toml"]
 live_config_reload = true
 
 [window]

@@ -1,0 +1,10 @@
+[Unit]
+Description=Set a random wallpaper every hour
+
+[Timer]
+Persistent=true
+OnCalendar=*:0/30
+AccuracySec=1s
+
+[Install]
+WantedBy=timers.target

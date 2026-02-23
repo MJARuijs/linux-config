@@ -19,6 +19,26 @@ function M.os_command(command)
 	return result
 end
 
+-- Source - https://stackoverflow.com/a/11130774
+-- Posted by Bobby Oster, modified by community. See post 'Timeline' for change history
+-- Retrieved 2026-02-20, License - CC BY-SA 3.0
+
+-- Lua implementation of PHP scandir function
+function M.scandir(directory)
+	local i, t, popen = 0, {}, io.popen
+	local pfile = popen('ls -a "' .. directory .. '"')
+
+	if pfile == nil then
+		return nil
+	end
+	for filename in pfile:lines() do
+		i = i + 1
+		t[i] = filename
+	end
+	pfile:close()
+	return t
+end
+
 function string.trim(s)
 	return (s:gsub("^%s*(.-)%s*$", "%1"))
 end
@@ -47,32 +67,25 @@ function M.write_to_file(file_name, content)
 	nvimColorFiles:write(content)
 	nvimColorFiles:close()
 end
+
 function M.getFileLines(filePath)
-	local file_log = "FileContent:\n"
-	-- 	local lines = {}
-	-- 	for line in io.lines(filePath) do
-	-- 		lines[#lines + 1] = line
-	-- 	end
-	-- 	return lines
 	local file = io.open(filePath, "r+")
-	-- print(file:read("*a"))
+
+	if file == nil then
+		return {}
+	end
+
 	local content = file:read("*a")
-	-- print(filePath .. " HALLO " .. content)
 	local lines = {}
 	local file_lines = content:split("\n")
-	file_log = file_log .. content
-	file_log = file_log .. "\n"
-	file_log = file_log .. "\n"
-	file_log = file_log .. "\n"
+
 	for _, line in pairs(file_lines) do
 		if line ~= nil then
-			-- print("FILELINE: " .. line)
-			file_log = file_log .. line .. "\n"
 			table.insert(lines, line)
 		end
 	end
 
-	-- M.write_to_file("/home/marc/file_log.txt", file_log)
 	return lines
 end
+
 return M

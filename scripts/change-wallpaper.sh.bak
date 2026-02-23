@@ -1,0 +1,2 @@
+$(lua change-wallpaper.lua ordered)
+echo $(matugen image ~/linux-config/wallpapers/green-leaves.jpg --dry-run --show-colors)

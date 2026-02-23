@@ -1,6 +1,9 @@
+export PATH=$PATH:/home/marc/Software/awww/target/release/
+export PATH=$PATH:/home/marc/Software/eww/target/release/
 source ~/linux-config/variables.sh
 alias c='clear;fastfetch'
 alias cl='clear;fastfetch;ls'
 alias activate='sh ~/linux-config/scripts/activate-aws-profile.sh'
-#alias nv='neovide --fork $1;exit'
 alias nv='. ~/linux-config/scripts/launch_neovide.sh'
+
+#export AWWW_COMMAND=/home/marc/Software/awww/target/release/

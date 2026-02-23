@@ -1,0 +1,6 @@
+[Unit]
+Description=Set wallpaper and colorscheme using awww
+
+[Service]
+Type=oneshot
+ExecStart=lua /home/marc/linux-config/scripts/change-wallpaper-and-colorscheme.lua

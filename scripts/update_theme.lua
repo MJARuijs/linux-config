@@ -39,15 +39,6 @@ local function createLuaTable(lines, separator)
 	return fileTable
 end
 
--- Source - https://stackoverflow.com/a
--- Posted by Yu Hao, modified by community. See post 'Timeline' for change history
--- Retrieved 2026-01-24, License - CC BY-SA 3.0
-local function sleep(n)
-	os.execute("sleep " .. tonumber(n))
-end
-
-sleep(1)
-
 local noctaliaColors = util.getFileLines("/home/marc/.config/noctalia/colors.json")
 local nvimColors = util.getFileLines("/home/marc/.config/nvim/colorschemes/intellij.nvim/lua/intellij/my_palette.lua")
 
@@ -90,4 +81,4 @@ util.write_to_file("/home/marc/.config/nvim/colorschemes/intellij.nvim/lua/intel
 -- util.write_to_file("/home/marc/nvim.txt", nvim_content)
 -- util.write_to_file("/home/marc/log.txt", log)
 
-os.execute("lua /home/marc/linux-config/scripts/nvim-server.lua")
+-- os.execute("lua /home/marc/linux-config/scripts/nvim-server.lua")

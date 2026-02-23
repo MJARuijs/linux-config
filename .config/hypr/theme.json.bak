@@ -1,0 +1,11 @@
+[
+    {
+            "key": "general:col.active_border",
+            "value": "#9ed49d"
+        },
+
+    {
+            "key": "general:col.inactive_border",
+            "value": "#101410"
+        }
+]

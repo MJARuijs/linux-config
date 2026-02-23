@@ -1,9 +1,9 @@
 echo $HOME
 echo $(pwd)
-if [ "$(pwd)" == "$HOME" ]; then
+if [ -n "$1" ]; then
+    neovide --fork $1 $2 $3 $4 $5
+elif [ "$(pwd)" == "$HOME" ]; then
     neovide --fork ~/.config/nvim/
-elif [ -n "$1" ]; then
-    neovide --fork $1
 else
     neovide --fork $(pwd)
 fi
