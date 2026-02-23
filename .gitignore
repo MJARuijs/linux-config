@@ -7,7 +7,9 @@ variables.sh
 .config/alacritty/themes/noctalia.toml
 .config/alacritty/themes/theme.toml
 .config/gtk-3.0/gtk.css
+.config/gtk-3.0/colors.css
 .config/gtk-4.0/gtk.css
+.config/gtk-4.0/colors.css
 .config/hypr/noctalia/noctalia-colors.conf
 .config/noctalia/colors.json
 .config/qt6ct/colors/noctalia.conf
@@ -22,3 +24,4 @@ variables.sh
 .config/hypr/matugen.conf
 .config/ml4w/colors/*
 current_wallpaper
+lockscreen/wallpaper.jpg
