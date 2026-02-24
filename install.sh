@@ -1,3 +1,7 @@
+### Create required styling files that don't get pushed to git
+$(touch $(~/linux-config/.config/ohmyposh/EDM115-newline.omp.json))
+
+### Create sym-links
 source_dir=~/linux-config/.config
 destination_dir=~/.config/
 
@@ -21,14 +25,4 @@ for entry in ${entries[@]}; do
     fi
 done
 
-# monitor_symlink=~/.config/linux-config/monitors/monitors-hostname.conf
-# workspace_symlink=~/.config/linux-config/workspaces/workspaces-hostname.conf
-
-# $(rm $monitor_symlink)
-# $(rm $workspace_symlink)
-
-# ln -s ~/.config/linux-config/monitors/monitors-$HOSTNAME.conf "~/.config/hypr/monitors.conf"
-# ln -s ~/.config/linux-config/workspaces/workspaces-$HOSTNAME.conf "~/.config/hypr/workspaces.conf"
-# ln -s ~/.config/linux-config/monitors/monitors-$HOSTNAME.conf $monitor_symlink
-# ln -s ~/.config/linux-config/workspaces/workspaces-$HOSTNAME.conf $workspace_symlink
 hyprctl reload
