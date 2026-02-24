@@ -28,7 +28,7 @@ by Stephan Raabe (2023)
 
 window {
 	/* background: url("../../.cache/ml4w/hyprland-dotfiles/blurred_wallpaper.png"); */
-	background: url("/home/marc/linux-config/lockscreen/wallpaper.jpg");
+	background: url("/home/marc/linux-config/lockscreen/wallpaper");
 	background-size: cover;
 	font-size: 16pt;
 
