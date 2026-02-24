@@ -1,0 +1,35 @@
+
+(defvar reveal true)
+; (defvar monitors "[0,1,2,3,4]")
+
+; (deflisten monitors :initial "[0,1,2,3,4]"
+;   "eww open bar --arg monitor=0")
+
+
+
+(defwindow bar [monitor]
+  :monitor monitor 
+  :stacking "fg"
+  :windowtype "normal"
+  :wm-ignore false
+  ; :focusable true 
+  :geometry (geometry :width "100%" :height "2%")
+  (bar_layout))
+
+(defwidget bar_layout []
+  (box :orientation "horizontal" :class "bar"
+    (label :text "hhhoi")
+    (button :onclick "sh scripts/toggle-boolean.sh reveal" "Click me")
+    ; (button :onclick "eww update reveal=\"{reveal ? false : true}\"" {reveal ? "hide" : "show"})
+    (reveal_test)
+  )
+)
+
+
+(defwidget reveal_test []
+  (revealer :transition "none" :reveal reveal
+    (label :text "Boex")
+    ; (systray :spacing 4 :space-evenly true :icon-size 2 :prepend-new true :orientation "h")
+  )
+)
+
