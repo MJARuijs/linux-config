@@ -1,2 +1,3 @@
 smb://marc@100.90.56.25/shares/ TrueNAS
+smb://marc@192.168.178.48/shares/ TrueNAS 2
 smb://Inone@192.168.2.114/shared/ inOne share

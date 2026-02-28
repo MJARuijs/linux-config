@@ -210,8 +210,6 @@ local function updateColorscheme(parameters)
 	local current_wallpaper_path = parameters[1]
 	os.execute("matugen image " .. current_wallpaper_path)
 	os.execute("cp " .. current_wallpaper_path .. " /home/marc/linux-config/lockscreen/wallpaper")
-
-	-- os.execute("hyprctl keyword")
 end
 
 local parameters = changeWallpaper()
