@@ -2,7 +2,7 @@ local module_folder = "/home/marc/linux-config/scripts/"
 package.path = module_folder .. "?.lua;" .. package.path
 local util = require("util")
 
-local CURRENT_WALLPAPER_PATH = "/home/marc/linux-config/current_wallpaper"
+local CURRENT_WALLPAPER_PATH = "/home/marc/linux-config/current_wallpaper_path"
 local AWWW_COMMAND = "/home/marc/Software/awww/target/release/awww"
 
 local TRANSITION_TYPE = "random"

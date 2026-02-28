@@ -25,3 +25,4 @@ variables.sh
 .config/ml4w/colors/*
 current_wallpaper
 lockscreen/wallpaper
+current_wallpaper_path
