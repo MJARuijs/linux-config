@@ -9,7 +9,7 @@ end
 
 function M.os_command(command)
 	local handle = io.popen(command)
-	print("EXECUTING OS COMMAND: " .. command)
+	-- print("EXECUTING OS COMMAND: " .. command)
 	if handle == nil then
 		return nil
 	end

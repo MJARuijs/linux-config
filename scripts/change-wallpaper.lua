@@ -115,6 +115,34 @@ local function determineTransitionEffect()
 	return arguments
 end
 
+-- Fullscreen applications mess up changing of the wallpaper.
+-- This method finds monitors that are displaying fullscreen windows, and puts them last in the argument list
+-- This way any monitor that isn't showing a fullscreen window gets updated correctly.
+local function constructMonitorArgument()
+	local monitor_workspaces = util.os_command('hyprctl monitors -j | jq -r ".[] | .name, .activeWorkspace.id"'):split("\n")
+
+	local regular_monitors_argument = ""
+	local fullscreen_monitor_argument = ""
+
+	for i = 1, #monitor_workspaces, 2 do
+		local monitor_name = monitor_workspaces[i]
+		local workspace_id = monitor_workspaces[i + 1]
+
+		if workspace_id ~= nil then
+			local fullscreen_window =
+				util.os_command('hyprctl clients -j | jq -r ".[] | select(.workspace.id == ' .. workspace_id .. ' and .fullscreen == 2) | .monitor"')
+
+			if fullscreen_window == nil or fullscreen_window == "" then
+				regular_monitors_argument = regular_monitors_argument .. monitor_name .. ","
+			else
+				fullscreen_monitor_argument = fullscreen_monitor_argument .. monitor_name .. ","
+			end
+		end
+	end
+
+	return { regular_monitors_argument, fullscreen_monitor_argument }
+end
+
 local function changeWallpaper()
 	local wallpapers = getWallpapersInDir()
 
@@ -163,11 +191,16 @@ local function changeWallpaper()
 	local transition_effect = determineTransitionEffect()
 
 	local command = AWWW_COMMAND .. " img " .. wallpaper
+
 	for _, arg in pairs(transition_effect) do
 		command = command .. arg
 	end
-	print("executing " .. command)
-	os.execute(command)
+
+	local monitor_types = constructMonitorArgument()
+
+	for _, monitors in pairs(monitor_types) do
+		os.execute(command .. " -o " .. monitors)
+	end
 
 	local parameters = { wallpaper, transition_effect[#transition_effect] }
 	return parameters
@@ -177,8 +210,6 @@ local function updateColorscheme(parameters)
 	local current_wallpaper_path = parameters[1]
 	os.execute("matugen image " .. current_wallpaper_path)
 	os.execute("cp " .. current_wallpaper_path .. " /home/marc/linux-config/lockscreen/wallpaper.jpg")
-
-	-- os.execute("hyprctl keyword")
 end
 
 local parameters = changeWallpaper()

@@ -1,3 +1,0 @@
-wallpaper=$(waypaper --list | jq -r .[0].wallpaper)
-echo $wallpaper
-$(matugen image $wallpaper)
