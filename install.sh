@@ -1,6 +1,6 @@
 ### Create required styling files that don't get pushed to git
 $(touch ~/linux-config/.config/ohmyposh/EDM115-newline.omp.json)
-$(touch ~/linux-config/lockscreen/wallpaper)
+$(touch ~/linux-config/current_wallpaper)
 
 ### Create sym-links
 source_dir=~/linux-config/.config
