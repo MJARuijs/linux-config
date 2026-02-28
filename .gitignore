@@ -14,7 +14,7 @@ variables.sh
 .config/noctalia/colors.json
 .config/qt6ct/colors/noctalia.conf
 .config/ohmyposh/colors.json
-# .config/ohmyposh/EDM115-newline.omp.json
+.config/ohmyposh/EDM115-newline.omp.json
 .config/rofi/colors.rasi
 .config/swaync/colors.css
 .config/walker/colors.css
@@ -24,4 +24,4 @@ variables.sh
 .config/hypr/matugen.conf
 .config/ml4w/colors/*
 current_wallpaper
-# lockscreen/wallpaper.jpg
+lockscreen/wallpaper

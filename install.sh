@@ -1,3 +1,8 @@
+### Create required styling files that don't get pushed to git
+$(touch ~/linux-config/.config/ohmyposh/EDM115-newline.omp.json)
+$(touch ~/linux-config/lockscreen/wallpaper)
+
+### Create sym-links
 source_dir=~/linux-config/.config
 destination_dir=~/.config/
 
@@ -21,14 +26,18 @@ for entry in ${entries[@]}; do
     fi
 done
 
-# monitor_symlink=~/.config/linux-config/monitors/monitors-hostname.conf
-# workspace_symlink=~/.config/linux-config/workspaces/workspaces-hostname.conf
-
-# $(rm $monitor_symlink)
-# $(rm $workspace_symlink)
-
-# ln -s ~/.config/linux-config/monitors/monitors-$HOSTNAME.conf "~/.config/hypr/monitors.conf"
-# ln -s ~/.config/linux-config/workspaces/workspaces-$HOSTNAME.conf "~/.config/hypr/workspaces.conf"
-# ln -s ~/.config/linux-config/monitors/monitors-$HOSTNAME.conf $monitor_symlink
-# ln -s ~/.config/linux-config/workspaces/workspaces-$HOSTNAME.conf $workspace_symlink
 hyprctl reload
+
+# Install software dependencies
+if [[ ! -d "$HOME/Software/eww" ]]; then
+    $(curl -L -o $HOME/Software/eww.zip https://github.com/elkowar/eww/archive/refs/heads/master.zip)
+    $(unzip $HOME/Software/eww.zip -d $HOME/Software/)
+    $(rm $HOME/Software/eww.zip)
+    $(mv $HOME/Software/eww-master/ $HOME/Software/eww/)
+    $(
+        cd $HOME/Software/eww
+        cargo build --release --no-default-features --features=wayland
+    )
+else
+    echo "Eww already installed"
+fi
