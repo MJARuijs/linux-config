@@ -1,48 +1,48 @@
 [colors.primary]
-background = '#{{colors.surface.default.hex_stripped}}'
-foreground = '#{{colors.on_background.default.hex_stripped}}'
+background = '#{{surface}}'
+foreground = '#{{on_background}}'
 
 [colors.cursor]
-text = '#{{colors.on_surface.default.hex_stripped}}'
-cursor = '#{{colors.on_surface_variant.default.hex_stripped}}'
+text = '#{{on_surface}}'
+cursor = '#{{on_surface_variant}}'
 
 [colors.vi_mode_cursor]
-text = '#{{colors.surface.default.hex_stripped}}'
-cursor = '#{{colors.primary.default.hex_stripped}}'
+text = '#{{surface}}'
+cursor = '#{{primary}}'
 
 [colors.search.matches]
-foreground = '#{{colors.surface_variant.default.hex_stripped}}'
-background = '#{{colors.tertiary.default.hex_stripped}}'
+foreground = '#{{surface_variant}}'
+background = '#{{tertiary}}'
 
 [colors.search.focused_match]
-foreground = '#{{colors.surface_variant.default.hex_stripped}}'
-background = '#{{colors.primary.default.hex_stripped}}'
+foreground = '#{{surface_variant}}'
+background = '#{{primary}}'
 
 [colors.footer_bar]
-foreground = '#{{colors.surface_variant.default.hex_stripped}}'
-background = '#{{colors.inverse_surface.default.hex_stripped}}'
+foreground = '#{{surface_variant}}'
+background = '#{{inverse_surface}}'
 
 [colors.hints.start]
-foreground = '#{{colors.surface_variant.default.hex_stripped}}'
-background = '#{{colors.secondary.default.hex_stripped}}'
+foreground = '#{{surface_variant}}'
+background = '#{{secondary}}'
 
 [colors.hints.end]
-foreground = '#{{colors.surface_variant.default.hex_stripped}}'
-background = '#{{colors.secondary.default.hex_stripped}}'
+foreground = '#{{surface_variant}}'
+background = '#{{secondary}}'
 
 [colors.selection]
-foreground = '#{{colors.surface.default.hex_stripped}}'
-background = '#{{colors.primary.default.hex_stripped}}'
+foreground = '#{{surface}}'
+background = '#{{primary}}'
 
 
 [colors.normal]
 black = '#181818'
-red = '#{{colors.error.default.hex_stripped}}'
-green = '#{{colors.primary.default.hex_stripped}}'
-yellow = '#{{colors.inverse_primary.default.hex_stripped}}'
-blue = '#{{colors.primary.default.hex_stripped}}'
-magenta = '#{{colors.tertiary.default.hex_stripped}}'
-cyan = '#{{colors.secondary.default.hex_stripped}}'
+red = '#{{error}}'
+green = '#{{primary}}'
+yellow = '#{{inverse_primary}}'
+blue = '#{{primary}}'
+magenta = '#{{tertiary}}'
+cyan = '#{{secondary}}'
 white = '#BAC2DE'
 
 [colors.bright]

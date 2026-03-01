@@ -1,25 +1,25 @@
 {
-  "mPrimary": "#{{colors.primary.default.hex_stripped}}",
-  "mOnPrimary": "#{{colors.on_primary.default.hex_stripped}}",
+  "mPrimary": "#{{primary}}",
+  "mOnPrimary": "#{{on_primary}}",
 
-  "mSecondary": "#{{colors.secondary.default.hex_stripped}}",
-  "mOnSecondary": "#{{colors.on_secondary.default.hex_stripped}}",
+  "mSecondary": "#{{secondary}}",
+  "mOnSecondary": "#{{on_secondary}}",
 
-  "mTertiary": "#{{colors.tertiary.default.hex_stripped}}",
-  "mOnTertiary": "#{{colors.on_tertiary.default.hex_stripped}}",
+  "mTertiary": "#{{tertiary}}",
+  "mOnTertiary": "#{{on_tertiary}}",
 
-  "mError": "#{{colors.error.default.hex_stripped}}",
-  "mOnError": "#{{colors.on_error.default.hex_stripped}}",
+  "mError": "#{{error}}",
+  "mOnError": "#{{on_error}}",
 
-  "mSurface": "#{{colors.surface.default.hex_stripped}}",
-  "mOnSurface": "#{{colors.on_surface.default.hex_stripped}}",
+  "mSurface": "#{{surface}}",
+  "mOnSurface": "#{{on_surface}}",
 
-  "mSurfaceVariant": "#{{colors.surface_container.default.hex_stripped}}",
-  "mOnSurfaceVariant": "#{{colors.on_surface_variant.default.hex_stripped}}",
+  "mSurfaceVariant": "#{{surface_container}}",
+  "mOnSurfaceVariant": "#{{on_surface_variant}}",
     
-  "mOutline": "#{{colors.outline.default.hex_stripped}}",
-  "mShadow": "#{{colors.shadow.default.hex_stripped}}",
+  "mOutline": "#{{outline}}",
+  "mShadow": "#{{shadow}}",
 
-  "mHover": "#{{colors.tertiary.default.hex_stripped}}",
-  "mOnHover": "#{{colors.on_tertiary.default.hex_stripped}}"
+  "mHover": "#{{tertiary}}",
+  "mOnHover": "#{{on_tertiary}}"
 } 

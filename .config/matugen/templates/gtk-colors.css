@@ -20,3 +20,23 @@
 @define-color sidebar_fg_color @window_fg_color;
 @define-color sidebar_border_color @window_bg_color;
 @define-color sidebar_backdrop_color @window_bg_color;
+@define-color dialog_bg_color #ff0000;
+.navigation-sidebar {
+    background-color: @sidebar_bg_color;
+    color: @window_fg_color;
+}
+
+.button {
+    background-color: #ff0000;
+    color: #00ff00;
+}
+/* .thunar .sidebar {  background-color: @window_bg_color; } */
+/* .scrolledwindow .sidebar {  background-color: @window_bg_color; } */
+/* .thunar  .vertical {  background-color: @window_bg_color;} */
+
+.thunar .horizontal {  background-color: @window_bg_color;}
+.thunar .view {  background-color: @window_bg_color;}
+.thunar .frame {  background-color: @window_bg_color;}
+.thunar * {  background-color: @window_bg_color;}
+/* .standard-view {  background-color: @window_bg_color;} */
+/* .separator {background-color: #ff0000} */

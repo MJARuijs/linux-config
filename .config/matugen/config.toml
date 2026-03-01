@@ -1,78 +1,78 @@
 [config]
 
 [templates.hyprland]
-input_path = '~/.config/matugen/templates/hyprland-colors.conf'
-output_path = '~/.config/hypr/matugen.conf'
-post_hook = "lua $HOME/linux-config/scripts/reload-hyprland-theme.lua"
+input_path = '/home/marc/.config/matugen/templates/hyprland-colors.conf'
+output_path = '/home/marc/.config/hypr/matugen.conf'
+post_hook = "lua /home/marc/linux-config/scripts/reload-hyprland-theme.lua"
 # post_hook = 'hyprctl reload'
-
 [templates.noctalia]
-input_path = "~/.config/matugen/templates/noctalia.json"
-output_path = "~/.config/noctalia/colors.json"
+input_path = "/home/marc/.config/matugen/templates/noctalia.json"
+output_path = "/home/marc/.config/noctalia/colors.json"
 
 [templates.alacritty]
-input_path = "~/.config/matugen/templates/alacritty.toml"
-output_path = "~/.config/alacritty/themes/theme.toml"
+input_path = "/home/marc/.config/matugen/templates/alacritty.toml"
+output_path = "/home/marc/.config/alacritty/themes/theme.toml"
 
 [templates.nvim]
-input_path = "~/.config/matugen/templates/nvim.lua"
-output_path = "~/.config/nvim/colorschemes/intellij.nvim/lua/intellij/matugen.lua"
-post_hook = "lua ~/linux-config/scripts/reload-nvim-colorscheme.lua"
-
-[templates.eww]
-input_path = "~/.config/matugen/templates/eww.scss"
-output_path = "~/.config/eww/colors.scss"
-
-[templates.waybar]
-input_path = '~/.config/matugen/templates/colors.css'
-output_path = '~/.config/waybar/colors.css'
-
-[templates.rofi]
-input_path = '~/.config/matugen/templates/rofi-colors.rasi'
-output_path = '~/.config/rofi/colors.rasi'
-
-[templates.gtk3]
-input_path = '~/.config/matugen/templates/gtk-colors.css'
-output_path = '~/.config/gtk-3.0/colors.css'
-
-[templates.gtk4]
-input_path = '~/.config/matugen/templates/gtk-colors.css'
-output_path = '~/.config/gtk-4.0/colors.css'
-
+input_path = "/home/marc/.config/matugen/templates/nvim.lua"
+output_path = "/home/marc/.config/nvim/colorschemes/intellij.nvim/lua/intellij/matugen.lua"
+post_hook = "sh /home/marc/linux-config/scripts/reload-nvim-colorscheme.sh"
+#
+# [templates.eww]
+# input_path = "~/.config/matugen/templates/eww.scss"
+# output_path = "~/.config/eww/colors.scss"
+#
+# [templates.waybar]
+# input_path = '~/.config/matugen/templates/colors.css'
+# output_path = '~/.config/waybar/colors.css'
+#
+# [templates.rofi]
+# input_path = '~/.config/matugen/templates/rofi-colors.rasi'
+# output_path = '~/.config/rofi/colors.rasi'
+#
+# [templates.gtk3]
+# input_path = '~/.config/matugen/templates/gtk-colors.css'
+# output_path = '~/.config/gtk-3.0/gtk.css'
+# # post_hook = 'gsettings set org.gnome.desktop.interface gtk-theme ""; gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3-{{mode}}'
+#
+# [templates.gtk4]
+# input_path = '~/.config/matugen/templates/gtk-colors.css'
+# output_path = '~/.config/gtk-4.0/gtk.css'
+#
 [templates.pywalfox]
-input_path = '~/.config/matugen/templates/firefox.json'
-output_path = '~/.cache/wal/colors.json'
+input_path = '/home/marc/.config/matugen/templates/firefox.json'
+output_path = '/home/marc/.cache/wal/colors.json'
 post_hook = "pywalfox update"
-
-[templates.wlogout]
-input_path = '~/.config/matugen/templates/colors.css'
-output_path = '~/.config/wlogout/colors.css'
-
-[templates.swaync]
-input_path = '~/.config/matugen/templates/colors.css'
-output_path = '~/.config/swaync/colors.css'
-
-[templates.walker]
-input_path = '~/.config/matugen/templates/colors.css'
-output_path = '~/.config/walker/colors.css'
-
-[templates.sequences]
-input_path = '~/.config/matugen/templates/sequences'
-output_path = '~/.cache/wal/sequences'
-
-[templates.primary]
-input_path = '~/.config/matugen/templates/primary'
-output_path = '~/.config/ml4w/colors/primary'
-
-[templates.secondary]
-input_path = '~/.config/matugen/templates/secondary'
-output_path = '~/.config/ml4w/colors/secondary'
-
-[templates.on_surface]
-input_path = '~/.config/matugen/templates/onsurface'
-output_path = '~/.config/ml4w/colors/onsurface'
-
-[templates.ohmyposh]
-input_path = '~/.config/matugen/templates/ohmyposh-colors.json'
-output_path = '~/.config/ohmyposh/colors.json'
-post_hook = "jq --slurpfile palette ~/.config/ohmyposh/colors.json '. + $palette[0]' ~/.config/ohmyposh/EDM115-newline.omp.json > /tmp/new_theme.json && mv /tmp/new_theme.json ~/.config/ohmyposh/EDM115-newline.omp.json"
+#
+# [templates.wlogout]
+# input_path = '~/.config/matugen/templates/colors.css'
+# output_path = '~/.config/wlogout/colors.css'
+#
+# [templates.swaync]
+# input_path = '~/.config/matugen/templates/colors.css'
+# output_path = '~/.config/swaync/colors.css'
+#
+# [templates.walker]
+# input_path = '~/.config/matugen/templates/colors.css'
+# output_path = '~/.config/walker/colors.css'
+#
+# [templates.sequences]
+# input_path = '~/.config/matugen/templates/sequences'
+# output_path = '~/.cache/wal/sequences'
+#
+# [templates.primary]
+# input_path = '~/.config/matugen/templates/primary'
+# output_path = '~/.config/ml4w/colors/primary'
+#
+# [templates.secondary]
+# input_path = '~/.config/matugen/templates/secondary'
+# output_path = '~/.config/ml4w/colors/secondary'
+#
+# [templates.on_surface]
+# input_path = '~/.config/matugen/templates/onsurface'
+# output_path = '~/.config/ml4w/colors/onsurface'
+#
+# [templates.ohmyposh]
+# input_path = '~/.config/matugen/templates/ohmyposh-colors.json'
+# output_path = '~/.config/ohmyposh/colors.json'
+# post_hook = "jq --slurpfile palette ~/.config/ohmyposh/colors.json '. + $palette[0]' ~/.config/ohmyposh/EDM115-newline.omp.json > /tmp/new_theme.json && mv /tmp/new_theme.json ~/.config/ohmyposh/EDM115-newline.omp.json"

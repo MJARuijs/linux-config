@@ -1,3 +1,5 @@
+local socket = require("socket")
+
 local M = {}
 
 -- Source - https://stackoverflow.com/a
@@ -57,15 +59,15 @@ function string.split(s, separator)
 end
 
 function M.write_to_file(file_name, content)
-	local nvimColorFiles = io.open(file_name, "w+")
+	local file = io.open(file_name, "w+")
 
-	if nvimColorFiles == nil then
+	if file == nil then
 		print("COULDN'T WRITE TO FILE: " .. file_name)
 		return
 	end
 
-	nvimColorFiles:write(content)
-	nvimColorFiles:close()
+	file:write(content)
+	file:close()
 end
 
 function M.getFileLines(filePath)
@@ -86,6 +88,20 @@ function M.getFileLines(filePath)
 	end
 
 	return lines
+end
+
+function M.createTimer(duration, sleep_interval, callback)
+	local startTime = socket.gettime()
+	return {
+		isRunning = function()
+			if socket.gettime() - startTime <= duration then
+				callback(socket.gettime() - startTime)
+				socket.sleep(sleep_interval)
+				return true
+			end
+			return false
+		end,
+	}
 end
 
 return M

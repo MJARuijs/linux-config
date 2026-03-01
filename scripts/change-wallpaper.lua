@@ -156,7 +156,7 @@ local function changeWallpaper()
 		local random = math.random(1, numberOfWallpapers)
 		wallpaper = wallpapers[random]
 	elseif arg[1] == "ordered" then
-		local current_wallpaper_path = getCurrentWallpaper()
+		local current_wallpaper_path = wallpaper_loader.getCurrentWallpaper()
 		if current_wallpaper_path == nil then
 			return
 		end
