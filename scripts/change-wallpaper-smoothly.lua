@@ -6,6 +6,7 @@ local wallpaper_loader = require("current-wallpaper-loader")
 local matugen = require("matugen")
 
 local AWWW_COMMAND = "/home/marc/Software/awww/target/release/awww"
+local HA_COMMAND = "/home/marc/linux-config/scripts/ha-update-entity.lua"
 
 local wallpaper_dir = "/home/marc/linux-config/wallpapers/"
 
@@ -117,6 +118,26 @@ local function updateColorscheme(parameters)
 	os.execute("cp " .. current_wallpaper_path .. " /home/marc/linux-config/current_wallpaper")
 end
 
+local function updateLEDStrips(primary_color)
+	local desk_color_hsv = util.os_command("pastel format hsl " .. primary_color):gsub("\\%", ""):split(",")
+	-- print("OG pastel format rgb " .. desk_color_hsv[1] .. "," .. desk_color_hsv[2] .. "," .. desk_color_hsv[3])
+	desk_color_hsv[1] = desk_color_hsv[1]:sub(5):trim()
+	desk_color_hsv[2] = 100
+	desk_color_hsv[3] = desk_color_hsv[3]:sub(1, #desk_color_hsv[3] - 3):trim() / 2
+
+	-- print("pastel format rgb " .. desk_color_hsv[1] .. "," .. desk_color_hsv[2] .. "," .. desk_color_hsv[3])
+	local desk_color_rgb = util.os_command("pastel format rgb 'hsl(" .. desk_color_hsv[1] .. "," .. desk_color_hsv[2] .. "%," .. desk_color_hsv[3] .. "%)'")
+	desk_color_rgb = desk_color_rgb:sub(5, #desk_color_rgb - 2):gsub(" ", "")
+	print(desk_color_rgb)
+
+	local monitors_color_rgb = util.os_command("pastel complement 'rgb(" .. desk_color_rgb .. ")' | pastel format rgb")
+	monitors_color_rgb = monitors_color_rgb:sub(5, #monitors_color_rgb - 2):gsub(" ", "")
+
+	print(monitors_color_rgb)
+	os.execute("lua " .. HA_COMMAND .. ' light turn_on entity_id \\"light.led_strip_controller_desk_led_strip\\" rgb_color [' .. desk_color_rgb .. "]")
+	os.execute("lua " .. HA_COMMAND .. ' light turn_on entity_id \\"light.led_strip_controller_monitors_led_strip\\" rgb_color [' .. monitors_color_rgb .. "]")
+end
+
 local current_wallpaper = wallpaper_loader.getCurrentWallpaper()
 local current_wallpaper_colors = matugen.getWallpaperColors(current_wallpaper)
 
@@ -184,7 +205,7 @@ local parameters = transition_effect[#transition_effect]
 --
 -- updateColorscheme(parameters)
 
-local timer = util.createTimer(2, 0.1, function(progress)
+local timer = util.createTimer(2, 0.01, function(progress)
 	local intermediate_colors = {}
 	for color_name, current_color in pairs(current_wallpaper_colors) do
 		local next_wallpaper_color = next_wallpaper_colors[color_name]
@@ -209,12 +230,21 @@ local timer = util.createTimer(2, 0.1, function(progress)
 			os.execute(post_hook)
 		end
 	end
+
+	updateLEDStrips(intermediate_colors["primary"])
 end)
+
+-- updateLEDStrips("", "")
 
 while timer.isRunning() do
 end
 
 wallpaper_loader.saveCurrentWallpaper(next_wallpaper)
+
+local next_primary_color = next_wallpaper_colors["primary"]
+
+updateLEDStrips(next_primary_color)
+
 for i, template in pairs(templates) do
 	matugen.applyColors(next_wallpaper_colors, template[1], template[2])
 	local post_hook = post_hooks[i]
