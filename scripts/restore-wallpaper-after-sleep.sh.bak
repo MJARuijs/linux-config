@@ -1,0 +1,2 @@
+$(mkdir ~/hoi)
+$(lua /home/marc/linux-config/scripts/change-wallpaper-smoothly.lua)
