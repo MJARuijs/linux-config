@@ -118,7 +118,7 @@ local function updateColorscheme(parameters)
 	os.execute("cp " .. current_wallpaper_path .. " /home/marc/linux-config/current_wallpaper")
 end
 
-local function updateLEDStrips(primary_color)
+local function updateLEDStrips(primary_color, transition_duration)
 	local desk_color_hsv = util.os_command("pastel format hsl " .. primary_color):gsub("\\%", ""):split(",")
 	-- print("OG pastel format rgb " .. desk_color_hsv[1] .. "," .. desk_color_hsv[2] .. "," .. desk_color_hsv[3])
 	desk_color_hsv[1] = desk_color_hsv[1]:sub(5):trim()
@@ -134,8 +134,22 @@ local function updateLEDStrips(primary_color)
 	monitors_color_rgb = monitors_color_rgb:sub(5, #monitors_color_rgb - 2):gsub(" ", "")
 
 	print(monitors_color_rgb)
-	os.execute("lua " .. HA_COMMAND .. ' light turn_on entity_id \\"light.led_strip_controller_desk_led_strip\\" rgb_color [' .. desk_color_rgb .. "]")
-	os.execute("lua " .. HA_COMMAND .. ' light turn_on entity_id \\"light.led_strip_controller_monitors_led_strip\\" rgb_color [' .. monitors_color_rgb .. "]")
+	os.execute(
+		"lua "
+			.. HA_COMMAND
+			.. ' light turn_on entity_id \\"light.led_strip_controller_desk_led_strip\\" rgb_color ['
+			.. desk_color_rgb
+			.. "] transition "
+			.. transition_duration
+	)
+	os.execute(
+		"lua "
+			.. HA_COMMAND
+			.. ' light turn_on entity_id \\"light.led_strip_controller_monitors_led_strip\\" rgb_color ['
+			.. monitors_color_rgb
+			.. "] transition "
+			.. transition_duration
+	)
 end
 
 local current_wallpaper = wallpaper_loader.getCurrentWallpaper()
@@ -230,10 +244,9 @@ local timer = util.createTimer(2, 0.01, function(progress)
 			os.execute(post_hook)
 		end
 	end
-
-	updateLEDStrips(intermediate_colors["primary"])
 end)
 
+updateLEDStrips(next_wallpaper_colors["primary"], 2)
 -- updateLEDStrips("", "")
 
 while timer.isRunning() do
@@ -241,9 +254,8 @@ end
 
 wallpaper_loader.saveCurrentWallpaper(next_wallpaper)
 
-local next_primary_color = next_wallpaper_colors["primary"]
-
-updateLEDStrips(next_primary_color)
+-- local next_primary_color = next_wallpaper_colors["primary"]
+-- updateLEDStrips(next_primary_color)
 
 for i, template in pairs(templates) do
 	matugen.applyColors(next_wallpaper_colors, template[1], template[2])

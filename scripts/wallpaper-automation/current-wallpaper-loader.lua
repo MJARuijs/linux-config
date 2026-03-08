@@ -4,7 +4,11 @@ local util = require("util")
 
 local M = {}
 
+-- This is the file that contains the name of the current wallpaper
 local CURRENT_WALLPAPER_PATH = "/home/marc/linux-config/current_wallpaper_path"
+
+-- This is the actua
+local CURRENT_WALLPAPER = "/home/marc/linux-config/current_wallpaper"
 local wallpaper_dir = "/home/marc/linux-config/wallpapers/"
 
 function M.getWallpapersInDir()
@@ -62,7 +66,8 @@ function M.getCurrentWallpaper()
 		return createCurrentWallpaperFile()
 	end
 
-	return lines[1]
+	return lines[1]:split("=")[2]:trim()
+	-- return lines[1]
 end
 
 function M.saveCurrentWallpaper(wallpaper)
@@ -72,8 +77,10 @@ function M.saveCurrentWallpaper(wallpaper)
 		print("FAILED TO SAVE WALLPAPER")
 		return nil
 	end
-	file:write(wallpaper)
+	file:write("$current_wallpaper=" .. wallpaper)
 	file:close()
+
+	os.execute("cp " .. wallpaper .. " " .. CURRENT_WALLPAPER)
 end
 
 return M
