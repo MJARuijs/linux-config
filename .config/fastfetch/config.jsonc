@@ -68,6 +68,10 @@
             "type": "memory"
         },
         {
+            "key": "│ {#36}󰩠 ip      {#keys}│",
+            "type": "localip"
+        },
+        {
             "key": "├───────────┤",
             "type": "custom"
         },
