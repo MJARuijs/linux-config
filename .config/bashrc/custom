@@ -3,7 +3,12 @@ export PATH=$PATH:/home/marc/Software/eww/target/release/
 source ~/linux-config/variables.sh
 alias c='clear;fastfetch'
 alias cl='clear;fastfetch;ls'
+alias cla='clear;fastfetch;la'
+alias cll='clear;fastfetch;ll'
 alias activate='sh ~/linux-config/scripts/activate-aws-profile.sh'
 alias nv='. ~/linux-config/scripts/launch_neovide.sh'
 
 #export AWWW_COMMAND=/home/marc/Software/awww/target/release/
+
+export PATH="$HOME/dev/flutter/bin:$PATH"
+export PATH="$HOME/dev/flutter/bin/dart:$PATH"
