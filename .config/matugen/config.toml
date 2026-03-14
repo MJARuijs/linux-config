@@ -23,8 +23,8 @@ post_hook = "sh /home/marc/linux-config/scripts/reload-nvim-colorscheme.sh"
 # output_path = "~/.config/eww/colors.scss"
 
 [templates.waybar]
-input_path = '~/.config/matugen/templates/colors.css'
-output_path = '~/.config/waybar/colors.css'
+input_path = '/home/marc/.config/matugen/templates/colors.css'
+output_path = '/home/marc/.config/waybar/colors.css'
 
 # [templates.rofi]
 # input_path = '~/.config/matugen/templates/rofi-colors.rasi'
@@ -49,12 +49,13 @@ input_path = '/home/marc/.config/matugen/templates/colors.css'
 output_path = '/home/marc/.config/wlogout/colors.css'
 
 [templates.swaync]
-input_path = '~/.config/matugen/templates/colors.css'
-output_path = '~/.config/swaync/colors.css'
+input_path = '/home/marc/.config/matugen/templates/colors.css'
+output_path = '/home/marc/.config/swaync/colors.css'
+post_hookk = "swaync-client -rs"
 
 [templates.walker]
-input_path = '~/.config/matugen/templates/colors.css'
-output_path = '~/.config/walker/colors.css'
+input_path = '/home/marc/.config/matugen/templates/colors.css'
+output_path = '/home/marc/.config/walker/colors.css'
 #
 # [templates.sequences]
 # input_path = '~/.config/matugen/templates/sequences'
