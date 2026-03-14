@@ -2,24 +2,28 @@
 current_workspace=$(hyprctl activeworkspace -j | jq '.id')
 monitor_count=$(hyprctl monitors all | grep -o Monitor | wc -l)
 
-current_monitor=$((($1 - 1 % $monitor_count) + 1))
+if [ $monitor_count == 1 ]; then
+    hyprctl dispatch workspace "$1"
+else
+    current_monitor=$((($1 - 1 % $monitor_count) + 1))
 
-# echo $current_workspace
-# echo $monitor_count
-# echo $current_monitor
+    # echo $current_workspace
+    # echo $monitor_count
+    # echo $current_monitor
 
-workspace_offset=0
+    workspace_offset=0
 
-for ((i = 1; i <= $monitor_count * 10; i++)); do
-    var=$(($monitor_count * $i))
-    if [ "$current_workspace" -le "$var" ]; then
-        workspace_offset=$(($i - 1))
-        break
-    fi
-done
+    for ((i = 1; i <= $monitor_count * 10; i++)); do
+        var=$(($monitor_count * $i))
+        if [ "$current_workspace" -le "$var" ]; then
+            workspace_offset=$(($i - 1))
+            break
+        fi
+    done
 
-new_workspace=$(($current_monitor + $workspace_offset * $monitor_count))
-new_monitor=$(hyprctl workspaces -j | jq -r ".[] | select(.id == $new_workspace) | .monitorID")
+    new_workspace=$(($current_monitor + $workspace_offset * $monitor_count))
+    new_monitor=$(hyprctl workspaces -j | jq -r ".[] | select(.id == $new_workspace) | .monitorID")
 
-hyprctl dispatch focusmonitor "$new_monitor"
-hyprctl dispatch workspace "$new_workspace"
+    hyprctl dispatch focusmonitor "$new_monitor"
+    hyprctl dispatch workspace "$new_workspace"
+fi
