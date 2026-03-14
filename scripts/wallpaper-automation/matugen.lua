@@ -17,7 +17,7 @@ local function parseLine(line)
 end
 
 function M.getWallpaperColors(wallpaper)
-	local current_colors = util.os_command("matugen image --dry-run --show-colors " .. wallpaper)
+	local current_colors = util.os_command("matugen image --dry-run --show-colors --source-color-index 0 " .. wallpaper)
 
 	local wallpaper_colors = {}
 
