@@ -4,7 +4,6 @@ gui:
 keybinding:
   universal:
     goInto: l
-    return: h
     prevBlock: <c-k>
     nextBlock: <c-j>
     prevBlock-alt: <disabled>
