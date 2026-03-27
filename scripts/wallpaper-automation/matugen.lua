@@ -46,33 +46,75 @@ function M.getTemplates()
 			goto continue
 		end
 
-		-- if line:startsWith("[templates.") then
-		-- 	local template_name = line:gsub("[templates.", ""):gsub("]", "")
-		-- 	current_template["template_name"] = template_name
-		-- end
+		print(line)
+
+		if line:startsWith("[templates.") then
+			local template_name = line:gsub("templates.", "")
+			template_name = template_name:sub(2, #template_name - 1)
+			print("Templatename: " .. template_name)
+			current_template["template_name"] = template_name
+		end
+
 		if line:startsWith("input_path") then
 			local input_value = parseLine(line)
 			current_template["input_path"] = input_value:trim()
+		end
 
-			if matugen_config_file[i + 1]:trim():startsWith("output_path") then
-				local output_line = matugen_config_file[i + 1]
-				local output_value = parseLine(output_line)
-				current_template["output_path"] = output_value:trim()
-				i = i + 1
+		if line:startsWith("output_path") then
+			local output_line = matugen_config_file[i]
+			local output_value = parseLine(output_line)
+			current_template["output_path"] = output_value:trim()
 
-				if matugen_config_file[i + 1]:trim():startsWith("post_hook") then
-					local post_hook_line = matugen_config_file[i + 1]
-					local post_hook_value = parseLine(post_hook_line)
-					current_template["post_hook"] = post_hook_value:trim():gsub('"', ""):gsub("'", "")
-					i = i + 1
-				end
+			if matugen_config_file[i + 1]:trim():startsWith("post_hook") == false then
 				table.insert(matugen_templates, current_template)
 				current_template = {}
 			end
 		end
 
+		if line:startsWith("post_hook") then
+			-- local post_hook_line = matugen_config_file[i + 1]
+			local post_hook_value = parseLine(line)
+			current_template["post_hook"] = post_hook_value:trim():gsub('"', ""):gsub("'", "")
+			table.insert(matugen_templates, current_template)
+			current_template = {}
+		end
+
 		::continue::
 	end
+
+	-- for i = 1, #matugen_config_file do
+	-- 	local line = matugen_config_file[i]:trim()
+	-- 	if line:startsWith("#") then
+	-- 		goto continue
+	-- 	end
+	--
+	-- 	-- if line:startsWith("[templates.") then
+	-- 	-- 	local template_name = line:gsub("[templates.", ""):gsub("]", "")
+	-- 	-- 	current_template["template_name"] = template_name
+	-- 	-- end
+	-- 	if line:startsWith("input_path") then
+	-- 		local input_value = parseLine(line)
+	-- 		current_template["input_path"] = input_value:trim()
+	--
+	-- 		if matugen_config_file[i + 1]:trim():startsWith("output_path") then
+	-- 			local output_line = matugen_config_file[i + 1]
+	-- 			local output_value = parseLine(output_line)
+	-- 			current_template["output_path"] = output_value:trim()
+	-- 			i = i + 1
+	--
+	-- 			if matugen_config_file[i + 1]:trim():startsWith("post_hook") then
+	-- 				local post_hook_line = matugen_config_file[i + 1]
+	-- 				local post_hook_value = parseLine(post_hook_line)
+	-- 				current_template["post_hook"] = post_hook_value:trim():gsub('"', ""):gsub("'", "")
+	-- 				i = i + 1
+	-- 			end
+	-- 			table.insert(matugen_templates, current_template)
+	-- 			current_template = {}
+	-- 		end
+	-- 	end
+	--
+	-- 	::continue::
+	-- end
 
 	local templates = {}
 	local post_hooks = {}
