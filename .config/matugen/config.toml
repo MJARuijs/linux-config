@@ -56,6 +56,10 @@ post_hookk = "swaync-client -rs"
 [templates.walker]
 input_path = '/home/marc/.config/matugen/templates/colors.css'
 output_path = '/home/marc/.config/walker/colors.css'
+
+[templates.ags]
+input_path = '/home/marc/.config/matugen/templates/colors.css'
+output_path = '/home/marc/.config/ags/colors.scss'
 #
 # [templates.sequences]
 # input_path = '~/.config/matugen/templates/sequences'
