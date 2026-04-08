@@ -1,3 +1,5 @@
-smb://marc@100.90.56.25/shares/ TrueNAS
-smb://marc@192.168.178.48/shares/ TrueNAS 2
-smb://Inone@192.168.2.114/shared/ inOne share
+file:///home/marc/Downloads Downloads
+file:///home/marc/Documents Documents
+file:///mnt/inOne inOne Share
+file:///mnt/TrueNAS TrueNAS
+file:///mnt/TrueNAS-2 TrueNAS 2
