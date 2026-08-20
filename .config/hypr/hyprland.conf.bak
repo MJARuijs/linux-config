@@ -23,7 +23,7 @@ source = ~/.config/hypr/monitors.conf
 # -----------------------------------------------------
 # Environment
 # -----------------------------------------------------
-source = ~/.config/hypr/conf/environment.conf
+# source = ~/.config/hypr/conf/environment.conf
 
 # -----------------------------------------------------
 # Keyboard
