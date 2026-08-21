@@ -2,6 +2,7 @@ export PATH=$PATH:/home/marc/Software/awww/target/release/
 export PATH=$PATH:/home/marc/Software/eww/target/release/
 export PATH="$HOME/dev/flutter/bin:$PATH"
 export PATH="$HOME/dev/flutter/bin/dart:$PATH"
+export PATH="$HOME/go/bin/:$PATH"
 source ~/linux-config/variables.sh
 
 alias c='clear;fastfetch'
@@ -10,6 +11,7 @@ alias cla='clear;fastfetch;la'
 alias cll='clear;fastfetch;ll'
 
 alias activate='sh ~/linux-config/scripts/activate-aws-profile.sh'
+alias hyprshutdown='./Software/hyprshutdown/build/hyprshutdown'
 alias nv='. ~/linux-config/scripts/launch_neovide.sh'
 alias runfrontend='cd /home/marc/Documents/inOne/Development/heidi/;sh run-frontend.sh'
 alias runmri='cd /home/marc/Documents/inOne/Development/mri/;sh run-frontend.sh'

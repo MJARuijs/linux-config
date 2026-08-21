@@ -1,28 +1,22 @@
 {
   "dark": {
-    "mPrimary": "#{{primary}}",
-    "mOnPrimary": "#{{on_primary}}",
-
-    "mSecondary": "#{{secondary}}",
-    "mOnSecondary": "#{{on_secondary}}",
-
-    "mTertiary": "#{{tertiary}}",
-    "mOnTertiary": "#{{on_tertiary}}",
-
-    "mError": "#{{error}}",
-    "mOnError": "#{{on_error}}",
-
-    "mSurface": "#{{surface}}",
-    "mOnSurface": "#{{on_surface}}",
-
-    "mSurfaceVariant": "#{{surface_container}}",
-    "mOnSurfaceVariant": "#{{on_surface_variant}}",
+    "mPrimary": "#FCB0D5",
+    "mOnPrimary": "#521D3C",
+    "mSecondary": "#E0BDCC",
+    "mOnSecondary": "#402A35",
+    "mTertiary": "#F3BB9A",
+    "mOnTertiary": "#4A2811",
+    "mError": "#FFB4AB",
+    "mOnError": "#690005",
+    "mSurface": "#181115",
+    "mOnSurface": "#EEDFE3",
+    "mSurfaceVariant": "#251D21",
+    "mOnSurfaceVariant": "#D4C2C8",
       
-    "mOutline": "#{{outline}}",
-    "mShadow": "#{{shadow}}",
-
-    "mHover": "#{{tertiary}}",
-    "mOnHover": "#{{on_tertiary}}",
+    "mOutline": "#9C8D92",
+    "mShadow": "#000000",
+    "mHover": "#F3BB9A",
+    "mOnHover": "#4A2811",
     "terminal": {
       "background": "#272822",
       "foreground": "#f8f8f2",
@@ -53,29 +47,23 @@
     }
   },
   "light": {
-    "mPrimary": "#{{primary}}",
-    "mOnPrimary": "#{{on_primary}}",
-
-    "mSecondary": "#{{secondary}}",
-    "mOnSecondary": "#{{on_secondary}}",
-
-    "mTertiary": "#{{tertiary}}",
-    "mOnTertiary": "#{{on_tertiary}}",
-
-    "mError": "#{{error}}",
-    "mOnError": "#{{on_error}}",
-
-    "mSurface": "#{{surface}}",
-    "mOnSurface": "#{{on_surface}}",
-
-    "mSurfaceVariant": "#{{surface_container}}",
-    "mOnSurfaceVariant": "#{{on_surface_variant}}",
+    "mPrimary": "#FCB0D5",
+    "mOnPrimary": "#521D3C",
+    "mSecondary": "#E0BDCC",
+    "mOnSecondary": "#402A35",
+    "mTertiary": "#F3BB9A",
+    "mOnTertiary": "#4A2811",
+    "mError": "#FFB4AB",
+    "mOnError": "#690005",
+    "mSurface": "#181115",
+    "mOnSurface": "#EEDFE3",
+    "mSurfaceVariant": "#251D21",
+    "mOnSurfaceVariant": "#D4C2C8",
       
-    "mOutline": "#{{outline}}",
-    "mShadow": "#{{shadow}}",
-
-    "mHover": "#{{tertiary}}",
-    "mOnHover": "#{{on_tertiary}}",
+    "mOutline": "#9C8D92",
+    "mShadow": "#000000",
+    "mHover": "#F3BB9A",
+    "mOnHover": "#4A2811",
     "terminal": {
       "background": "#272822",
       "foreground": "#f8f8f2",

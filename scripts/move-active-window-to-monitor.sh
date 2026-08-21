@@ -10,13 +10,16 @@ current_monitor=$((($1 - 1 % $monitor_count) + 1))
 
 workspace_offset=0
 for ((i = 1; i <= $monitor_count * 10; i++)); do
-  var=$(($monitor_count * $i))
-  if [ "$current_workspace" -le "$var" ]; then
-    workspace_offset=$(($i - 1))
-    break
-  fi
+    var=$(($monitor_count * $i))
+    if [ "$current_workspace" -le "$var" ]; then
+        workspace_offset=$(($i - 1))
+        break
+    fi
 done
 
 new_monitor=$(($current_monitor + $workspace_offset * $monitor_count))
 
-hyprctl dispatch movetoworkspace "$new_monitor"
+# echo $new_monitor
+# echo $workspace_offset
+hyprctl dispatch "hl.dsp.window.move({workspace = $new_monitor})"
+# hyprctl dispatch movetoworkspace "$new_monitor"

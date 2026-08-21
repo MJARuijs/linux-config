@@ -42,9 +42,20 @@ fi
 
 for ((i = $monitor_count; i > 0; i--)); do
     # echo 'Switching to ' $(($first_monitor_workspace_index + $i))
-    hyprctl dispatch workspace "$(($first_monitor_workspace_index + $i))"
+    # hyprctl dispatch workspace "$(($first_monitor_workspace_index + $i))"
+    hyprctl dispatch "hl.dsp.focus({workspace=\"$(($first_monitor_workspace_index + $i))\"})"
 done
 
-$(hyprctl dispatch focusmonitor $current_monitor_id)
-$(hyprctl dispatch focuswindow "address:$current_window")
-$(hyprctl dispatch movecursor $parsed_current_cursor_position)
+# echo $target_workspace
+# echo $first_monitor_workspace_index
+# echo $parsed_current_cursor_position
+# echo $cursor_x
+# echo $cursor_y
+
+$(hyprctl dispatch "hl.dsp.focus({monitor = \"$current_monitor_id\"})")
+$(hyprctl dispatch "hl.dsp.focus({window = \"address:"$current_window"\"})")
+$(hyprctl dispatch "hl.dsp.cursor.move({x=$cursor_x, y=$cursor_y})")
+
+# $(hyprctl dispatch focuswindow "address:$current_window")
+# $(hyprctl dispatch focusmonitor $current_monitor_id)
+# $(hyprctl dispatch movecursor $parsed_current_cursor_position)

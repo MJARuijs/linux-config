@@ -12,7 +12,8 @@ target_workspace=$(((($1 - 1) * $monitor_count) + $current_workspace % $monitor_
 
 window_addresses=$(hyprctl clients -j | jq -r ".[] | select(.workspace.id == $current_workspace) | .address")
 for address in $window_addresses; do
-  hyprctl dispatch movetoworkspacesilent "$target_workspace"
+    hyprctl dispatch "hl.dsp.window.move({workspace = $target_workspace, follow = false})"
+    # hyprctl dispatch movetoworkspacesilent "$target_workspace"
 done
 echo $target_workspace
 #hyprctl dispatch workspace "$new_monitor"

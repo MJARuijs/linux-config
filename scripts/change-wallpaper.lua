@@ -227,12 +227,17 @@ local timer = util.createTimer(2, 0.01, function(progress)
 			goto continue
 		end
 
-		local mix = util
-			.os_command("pastel mix " .. next_wallpaper_color:gsub("#", "") .. " " .. current_color:gsub("#", "") .. " -f " .. progress / 2.0 .. " | pastel format hex")
+		local mix = util.os_command(
+			"pastel mix " .. next_wallpaper_color:gsub("#", "") .. " " .. current_color:gsub("#", "") .. " -f " .. progress / 2.0 .. " | pastel format hex"
+		)
 			:trim()
 			:gsub("#", "")
 
 		intermediate_colors[color_name] = mix
+		-- if intermediate_colors[color_name] == nil then
+		-- else
+		-- 	print("INTERMEDIATE: " .. intermediate_colors["primary"])
+		-- end
 		goto continue
 		::continue::
 	end

@@ -7,7 +7,8 @@ post_hook = "lua /home/marc/linux-config/scripts/reload-hyprland-theme.lua"
 
 [templates.noctalia]
 input_path = "/home/marc/.config/matugen/templates/noctalia.json"
-output_path = "/home/marc/.config/noctalia/colors.json"
+output_path = "/home/marc/.config/noctalia/palettes/colors.json"
+post_hook = "noctalia msg color-scheme-set custom colors"
 
 [templates.alacritty]
 input_path = "/home/marc/.config/matugen/templates/alacritty.toml"
@@ -48,14 +49,15 @@ post_hook = "pywalfox update"
 input_path = '/home/marc/.config/matugen/templates/colors.css'
 output_path = '/home/marc/.config/wlogout/colors.css'
 
-[templates.swaync]
-input_path = '/home/marc/.config/matugen/templates/colors.css'
-output_path = '/home/marc/.config/swaync/colors.css'
-post_hookk = "swaync-client -rs"
+# [templates.swaync]
+# input_path = '/home/marc/.config/matugen/templates/colors.css'
+# output_path = '/home/marc/.config/swaync/colors.css'
+# post_hook = "swaync-client -rs"
 
 [templates.walker]
 input_path = '/home/marc/.config/matugen/templates/colors.css'
 output_path = '/home/marc/.config/walker/colors.css'
+# post_hook = 'walker -t noctalia'
 
 [templates.ags]
 input_path = '/home/marc/.config/matugen/templates/colors.css'

@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
-#    __            __   _         ___             
+#    __            __   _         ___
 #   / /_____ __ __/ /  (_)__  ___/ (_)__  ___ ____
 #  /  '_/ -_) // / _ \/ / _ \/ _  / / _ \/ _ `(_-<
 # /_/\_\\__/\_, /_.__/_/_//_/\_,_/_/_//_/\_, /___/
-#          /___/                        /___/     
-# 
+#          /___/                        /___/
+#
 
 # -----------------------------------------------------
 # Get keybindings location based on variation
@@ -29,7 +29,7 @@ keybinds=$(awk -F'[=#]' '
         gsub(/\$mainMod/, "SUPER", $0)
 
         # Remove "bind" and extra spaces, if any, at the beginning of the line
-        gsub(/^bind[[:space:]]*=+[[:space:]]*/, "", $0)
+        gsub(/^hl.bind[[:space:]]*=+[[:space:]]*/, "", $0)
 
         # Split the keybinding part (e.g., "Mod1,Return") using a comma
         split($1, kbarr, ",")
