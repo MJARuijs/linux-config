@@ -128,12 +128,10 @@ local function updateLEDStrips(primary_color, transition_duration)
 	-- print("pastel format rgb " .. desk_color_hsv[1] .. "," .. desk_color_hsv[2] .. "," .. desk_color_hsv[3])
 	local desk_color_rgb = util.os_command("pastel format rgb 'hsl(" .. desk_color_hsv[1] .. "," .. desk_color_hsv[2] .. "%," .. desk_color_hsv[3] .. "%)'")
 	desk_color_rgb = desk_color_rgb:sub(5, #desk_color_rgb - 2):gsub(" ", "")
-	print(desk_color_rgb)
 
 	local monitors_color_rgb = util.os_command("pastel complement 'rgb(" .. desk_color_rgb .. ")' | pastel format rgb")
 	monitors_color_rgb = monitors_color_rgb:sub(5, #monitors_color_rgb - 2):gsub(" ", "")
 
-	print(monitors_color_rgb)
 	os.execute(
 		"lua "
 			.. HA_COMMAND
@@ -142,6 +140,7 @@ local function updateLEDStrips(primary_color, transition_duration)
 			.. "] transition "
 			.. transition_duration
 	)
+	os.execute("lua " .. HA_COMMAND .. ' light turn_on entity_id \\"light.led_strip_controller_desk_led_strip\\" brightness 255')
 	os.execute(
 		"lua "
 			.. HA_COMMAND
@@ -149,6 +148,56 @@ local function updateLEDStrips(primary_color, transition_duration)
 			.. monitors_color_rgb
 			.. "] transition "
 			.. transition_duration
+	)
+	os.execute("lua " .. HA_COMMAND .. ' light turn_on entity_id \\"light.led_strip_controller_monitors_led_strip\\" brightness 255')
+end
+
+local function updatePCLighting(primary_color)
+	local desk_color_hsv = util.os_command("pastel format hsl " .. primary_color):gsub("\\%", ""):split(",")
+	desk_color_hsv[1] = desk_color_hsv[1]:sub(5):trim()
+	desk_color_hsv[2] = 100
+	desk_color_hsv[3] = 50
+
+	-- desk_color_hsv[1] = 10
+	print("PRIMARY: " .. desk_color_hsv[1])
+	if tonumber(desk_color_hsv[1]) > 15 and tonumber(desk_color_hsv[1]) < 60 then
+		desk_color_hsv[1] = 13
+	end
+
+	local desk_color_rgb = util.os_command("pastel format rgb 'hsl(" .. desk_color_hsv[1] .. "," .. desk_color_hsv[2] .. "%," .. desk_color_hsv[3] .. "%)'")
+	desk_color_rgb = desk_color_rgb:sub(5, #desk_color_rgb - 2):gsub(" ", "")
+
+	local monitors_color_hue = util.os_command(
+		"pastel complement 'hsv(" .. desk_color_hsv[1] .. ", " .. desk_color_hsv[2] .. "%, " .. desk_color_hsv[3] .. "%)' | pastel format hsv-hue"
+	)
+	monitors_color_hue = monitors_color_hue:trim()
+	if tonumber(monitors_color_hue) > 15 and tonumber(monitors_color_hue) < 60 then
+		monitors_color_hue = 13
+	end
+
+	local monitors_color_hsv = "hsl(" .. monitors_color_hue .. ", " .. 100 .. "%, " .. 50 .. "%)"
+	-- print("MONITORS HSV " .. monitors_color_hsv)
+	local primary_pc_color = util.os_command("pastel format hex " .. desk_color_rgb)
+	local secondary_pc_color = util.os_command("pastel format hex '" .. monitors_color_hsv .. "'")
+
+	-- print("DESK COLOR: " .. primary_color)
+	-- print("DESK COLOR: " .. primary_pc_color:trim())
+	-- print("MONITORS COLOR: " .. secondary_pc_color)
+	--
+	-- print("Executing:")
+	-- print(
+	-- 	'java -jar /home/marc/Documents/Programming/OpenRGBClient/target/OpenRGBClient-1.0-jar-with-dependencies.jar "'
+	-- 		.. primary_pc_color:trim()
+	-- 		.. '" "'
+	-- 		.. secondary_pc_color:trim()
+	-- 		.. '"'
+	-- )
+	os.execute(
+		'java -jar /home/marc/Documents/Programming/OpenRGBClient/target/OpenRGBClient-1.0-jar-with-dependencies.jar "'
+			.. primary_pc_color:trim()
+			.. '" "'
+			.. secondary_pc_color:trim()
+			.. '"'
 	)
 end
 
@@ -227,8 +276,9 @@ local timer = util.createTimer(2, 0.01, function(progress)
 			goto continue
 		end
 
-		local mix = util
-			.os_command("pastel mix " .. next_wallpaper_color:gsub("#", "") .. " " .. current_color:gsub("#", "") .. " -f " .. progress / 2.0 .. " | pastel format hex")
+		local mix = util.os_command(
+			"pastel mix " .. next_wallpaper_color:gsub("#", "") .. " " .. current_color:gsub("#", "") .. " -f " .. progress / 2.0 .. " | pastel format hex"
+		)
 			:trim()
 			:gsub("#", "")
 
@@ -264,6 +314,7 @@ for i, template in pairs(templates) do
 		os.execute(post_hook)
 	end
 end
+updatePCLighting(next_wallpaper_colors["primary"])
 -- os.execute("hyprctl keyword general:col.active_border 0xff" .. second)
 -- for _, hook in pairs(post_hooks) do
 -- 	os.execute(hook)

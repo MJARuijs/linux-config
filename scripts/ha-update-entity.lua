@@ -23,6 +23,7 @@ if #arg ~= 0 then
 	curl_command = curl_command .. "}'"
 end
 
-curl_command = curl_command .. " http://192.168.178.215:8123/api/services/" .. arg[1] .. "/" .. arg[2]
-print(curl_command)
-os.execute(curl_command)
+-- curl_command = curl_command .. " http://192.168.178.215:8123/api/services/" .. arg[1] .. "/" .. arg[2]
+curl_command = curl_command .. " https://home-assistant.spodermouse.com/api/services/" .. arg[1] .. "/" .. arg[2]
+
+print("HA COMMAND: " .. util.os_command(curl_command))
