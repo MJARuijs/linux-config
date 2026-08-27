@@ -1,5 +1,5 @@
 file:///home/marc/Downloads Downloads
 file:///home/marc/Documents Documents
 file:///mnt/inOne inOne Share
-file:///mnt/TrueNAS TrueNAS
-file:///mnt/TrueNAS-2 TrueNAS 2
+smb://192.168.178.47/shares TrueNAS
+smb://192.168.178.48/shares TrueNAS 2

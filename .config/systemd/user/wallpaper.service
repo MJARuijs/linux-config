@@ -7,3 +7,4 @@ ExecStart=lua /home/marc/linux-config/scripts/change-wallpaper-smoothly.lua orde
 
 [Install]
 WantedBy=multi-user.target
+ExecStart=lua /home/marc/linux-config/scripts/change-wallpaper.lua ordered

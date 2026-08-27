@@ -2,7 +2,7 @@ local module_folder = "/home/marc/linux-config/scripts/"
 package.path = module_folder .. "?.lua;" .. package.path
 local util = require("util")
 
-local FILE_PATH = "/home/marc/Documents/inOne/Development/heidi/ngMyinONE/tsconfig.json"
+local FILE_PATH = "/home/marc/Documents/inOne/Development/heidi/ngmyinone/tsconfig.json"
 
 local file_lines = util.getFileLines(FILE_PATH)
 
@@ -17,7 +17,6 @@ end
 if has_compiler_options == false then
 	local last_line = table.remove(file_lines, #file_lines)
 
-	--
 	local file_content = ""
 	for _, line in pairs(file_lines) do
 		file_content = file_content .. line .. "\n"

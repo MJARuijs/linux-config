@@ -1,13 +1,4 @@
-@define-color surface #0c141b;
-@define-color surfaceVariant #394856;
-
-@define-color onSurface #dbe3ed;
-@define-color onSurfaceVariant #b8c8d9;
-
-@define-color primary #4ddad7;
-@define-color secondary #80d5d2;
-@define-color error #ffb4ab;
-@define-color outline #8293a2;
+@import "../../colors.css";
 
 * {
   all: unset;
@@ -26,13 +17,13 @@ scrollbar {
 }
 
 .box-wrapper {
-  box-shadow:
-    0 19px 38px rgba(0, 0, 0, 0.3),
-    0 15px 12px rgba(0, 0, 0, 0.22);
+  /* box-shadow: */
+  /*   0 19px 38px rgba(0, 0, 0, 0.3), */
+  /*   0 15px 12px rgba(0, 0, 0, 0.22); */
   background: @surface;
-  padding: 12px;
+  /* padding: 12px; */
   border-radius: 20px;
-  border: 2px solid @outline;
+  /* border: 2px solid @outline; */
 }
 
 .preview-box,
@@ -45,7 +36,7 @@ scrollbar {
   background: @surfaceVariant;
   padding: 20px;
   border-radius: 20px;
-  border: 2px solid @outline;
+  /* border: 2px solid @primary; */
 }
 
 .search-container {
