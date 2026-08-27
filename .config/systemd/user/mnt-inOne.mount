@@ -1,0 +1,11 @@
+[Unit]
+Description=inOne share
+OnFailure=automount-restarter@%N.service
+
+[Mount]
+What=//192.168.2.114/shared/
+Where=/mnt/inOne/
+
+Options=credentials=/etc/samba/inOne-credentials,uid=1000,gid=1000
+Type=cifs
+TimeoutSec=30

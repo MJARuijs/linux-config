@@ -1,0 +1,12 @@
+[Unit]
+Description=inOne Share Automount
+OnFailure=automount-restarter@%N.service
+# Network interface target dependancies
+After=sys-subsystem-net-devices-ppp0.device
+Requisite=sys-subsystem-net-devices-ppp0.device
+
+[Automount]
+Where=/mnt/inOne/
+
+[Install]
+WantedBy=multi-user.target
