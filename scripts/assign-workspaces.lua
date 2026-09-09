@@ -63,17 +63,18 @@ local workspace_counter = 1
 
 for i = 1, workspace_count do
 	for j = 1, monitor_count do
-		file_content = file_content .. "workspace=" .. workspace_counter .. ",monitor:" .. sorted_monitors[j][1]
+		file_content = file_content .. "hl.workspace_rule({workspace = " .. workspace_counter .. ", monitor = '" .. sorted_monitors[j][1] .. "'"
+		-- file_content = file_content .. "workspace=" .. workspace_counter .. ",monitor:" .. sorted_monitors[j][1]
 		if i == 1 then
-			file_content = file_content .. ",default:true"
+			file_content = file_content .. ", default = true"
 		end
 		workspace_counter = workspace_counter + 1
-		file_content = file_content .. "\n"
+		file_content = file_content .. "})\n"
 	end
 end
 
 print(file_content)
-local workspace_file = io.open("/home/marc/.config/hypr/workspaces.conf", "w+")
+local workspace_file = io.open("/home/marc/.config/hypr/workspaces.lua", "w+")
 if workspace_file == nil then
 	return
 end
