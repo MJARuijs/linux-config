@@ -63,11 +63,12 @@ local workspace_counter = 1
 
 for i = 1, workspace_count do
 	for j = 1, monitor_count do
-		file_content = file_content .. "hl.workspace_rule({workspace = " .. workspace_counter .. ", monitor = '" .. sorted_monitors[j][1] .. "'"
+		file_content = file_content .. 'hl.workspace_rule({ workspace="' .. workspace_counter .. '", monitor = "' .. sorted_monitors[j][1] .. '"'
 		-- file_content = file_content .. "workspace=" .. workspace_counter .. ",monitor:" .. sorted_monitors[j][1]
 		if i == 1 then
 			file_content = file_content .. ", default = true"
 		end
+		file_content = file_content .. " })\n"
 		workspace_counter = workspace_counter + 1
 		file_content = file_content .. "})\n"
 	end

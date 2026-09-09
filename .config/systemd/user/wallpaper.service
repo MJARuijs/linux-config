@@ -3,4 +3,8 @@ Description=Set wallpaper and colorscheme using awww
 
 [Service]
 Type=oneshot
+ExecStart=lua /home/marc/linux-config/scripts/change-wallpaper-smoothly.lua ordered
+
+[Install]
+WantedBy=multi-user.target
 ExecStart=lua /home/marc/linux-config/scripts/change-wallpaper.lua ordered
