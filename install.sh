@@ -30,6 +30,7 @@ hyprctl reload
 
 # Install software dependencies
 if [[ ! -d "$HOME/Software/eww" ]]; then
+    echo "Installing Eww"
     $(curl -L -o $HOME/Software/eww.zip https://github.com/elkowar/eww/archive/refs/heads/master.zip)
     $(unzip $HOME/Software/eww.zip -d $HOME/Software/)
     $(rm $HOME/Software/eww.zip)
