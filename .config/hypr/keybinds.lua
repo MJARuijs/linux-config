@@ -140,6 +140,10 @@ hl.define_submap("wallpaper", function()
 		hl.dispatch(hl.dsp.exec_cmd("lua /home/marc/linux-config/scripts/change-wallpaper.lua /home/marc/linux-config/wallpapers/minimal-blue-mountains.jpg"))
 	end)
 
+	hl.bind("T", function()
+		hl.dispatch(hl.dsp.exec_cmd("sh /home/marc/linux-config/scripts/toggle-wallpaper-timer.sh"))
+	end)
+
 	hl.bind("catchall", hl.dsp.submap("reset"))
 end)
 
