@@ -1,0 +1,9 @@
+[font]
+size = 13
+
+[[font.normal]]
+family = "JetBrainsMono Nerd Font"
+# normal = ["JetBrainsMono Nerd Font Regular"]
+[Box-drawing]
+# "font-glyph", "native" or "selected-native"
+mode = "font-glyph"
