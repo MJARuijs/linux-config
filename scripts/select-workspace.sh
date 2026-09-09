@@ -41,9 +41,11 @@ if [[ -z "$current_window" ]]; then
 fi
 
 for ((i = $monitor_count; i > 0; i--)); do
-    # echo 'Switching to ' $(($first_monitor_workspace_index + $i))
+    echo 'Switching to ' $(($first_monitor_workspace_index + $i))
+
+    hyprctl dispatch "hl.dsp.focus({workspace = $(($first_monitor_workspace_index + $i))})"
     # hyprctl dispatch workspace "$(($first_monitor_workspace_index + $i))"
-    hyprctl dispatch "hl.dsp.focus({workspace=\"$(($first_monitor_workspace_index + $i))\"})"
+    # hyprctl dispatch "hl.dsp.focus({workspace=\"$(($first_monitor_workspace_index + $i))\"})"
 done
 
 # echo $target_workspace

@@ -523,7 +523,6 @@
         "overlayLayer": true
     },
     "plugins": {
-        "autoUpdate": false,
         "notifyUpdates": true
     },
     "sessionMenu": {

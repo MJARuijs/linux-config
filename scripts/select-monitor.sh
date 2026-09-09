@@ -27,7 +27,7 @@ else
 
     echo $new_monitor
     echo $new_workspace
-    # hyprctl dispatch "hl.dsp.focus({monitor ="
+    hyprctl dispatch "hl.dsp.focus({monitor = $new_monitor })"
     # hyprctl dispatch focusmonitor "$new_monitor"
     # hyprctl dispatch workspace "$new_workspace"
 fi
