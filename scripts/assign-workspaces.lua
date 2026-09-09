@@ -70,7 +70,6 @@ for i = 1, workspace_count do
 		end
 		file_content = file_content .. " })\n"
 		workspace_counter = workspace_counter + 1
-		file_content = file_content .. "})\n"
 	end
 end
 
