@@ -2,4 +2,5 @@ file:///home/marc/Downloads Downloads
 file:///home/marc/Documents Documents
 file:///mnt/inOne inOne Share
 smb://192.168.178.47/shares TrueNAS
+smb://storage.spodermouse.com/shares TrueNAS
 smb://192.168.178.48/shares TrueNAS 2

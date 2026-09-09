@@ -3,6 +3,7 @@ export PATH=$PATH:/home/marc/Software/eww/target/release/
 export PATH="$HOME/dev/flutter/bin:$PATH"
 export PATH="$HOME/dev/flutter/bin/dart:$PATH"
 export PATH="$HOME/go/bin/:$PATH"
+export PATH="$HOME/.platformio/penv/bin/:$PATH"
 source ~/linux-config/variables.sh
 
 alias c='clear;fastfetch'

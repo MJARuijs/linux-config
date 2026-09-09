@@ -1,4 +1,6 @@
 .config/hypr/monitors.conf
+.config/hypr/monitors.lua
+.config/hypr/workspaces.lua
 .config/hypr/workspaces.conf
 monitors/frame-hostname.conf
 # workspaces/workspaces-hostname.conf
@@ -8,10 +10,12 @@ variables.sh
 .config/alacritty/themes/theme.toml
 .config/gtk-3.0/gtk.css
 .config/gtk-3.0/colors.css
+.config/gtk-3.0/noctalia.css
 .config/gtk-4.0/gtk.css
 .config/gtk-4.0/colors.css
 .config/hypr/noctalia/noctalia-colors.conf
 .config/noctalia/colors.json
+.config/noctalia/palettes/colors.json
 .config/qt6ct/colors/noctalia.conf
 .config/ohmyposh/colors.json
 .config/ohmyposh/EDM115-newline.omp.json
