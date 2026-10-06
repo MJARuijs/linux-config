@@ -1,7 +1,10 @@
 hl.bind("SUPER + SHIFT + SPACE", hl.dsp.exec_cmd("walker"))
 
 hl.bind("SUPER + CTRL + R", hl.dsp.exec_cmd("hyprctl reload"))
-hl.bind("SUPER + SHIFT + R", hl.dsp.exec_cmd("lua /home/marc/linux-config/scripts/assign-workspaces.lua"))
+hl.bind(
+	"SUPER + SHIFT + R",
+	hl.dsp.exec_cmd("lua /home/marc/linux-config/scripts/initialize_workspaces.lua; lua /home/marc/linux-config/scripts/assign-workspaces.lua")
+)
 
 hl.bind("SUPER + CTRL + Q", hl.dsp.exec_cmd("sh /home/marc/linux-config/scripts/logout.sh"))
 hl.bind("SUPER + T", hl.dsp.exec_cmd("sh /home/marc/.config/ml4w/settings/terminal.sh"))
@@ -9,7 +12,7 @@ hl.bind("SUPER + B", hl.dsp.exec_cmd("sh /home/marc/.config/ml4w/settings/browse
 hl.bind("SUPER + SHIFT + B", hl.dsp.exec_cmd("firefox --private-window"))
 
 hl.bind("SUPER + E", hl.dsp.exec_cmd("/home/marc/.config/ml4w/settings/filemanager.sh"))
-hl.bind("SUPER + D", hl.dsp.exec_cmd("lua /home/marc/linux-config/scripts/launch-workspacebound-program.lua dbeaver"))
+hl.bind("SUPER + D", hl.dsp.exec_cmd("dbeaver"))
 
 hl.bind("SUPER + N", hl.dsp.exec_cmd("sh /home/marc/linux-config/scripts/launch_neovide.sh"))
 

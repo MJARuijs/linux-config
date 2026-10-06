@@ -6,6 +6,8 @@ keybinding:
     goInto: l
     prevBlock: <c-k>
     nextBlock: <c-j>
+    scrollUpMain: <a-k>
+    scrollDownMain: <a-j>
     prevBlock-alt: <disabled>
     nextBlock-alt: <disabled>
   commits:

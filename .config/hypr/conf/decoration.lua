@@ -1,7 +1,7 @@
 -- require("conf/decorations/rounding-all-blur")
 hl.config({
 	decoration = {
-		rounding = 10,
+		rounding = 0,
 		active_opacity = 0.8,
 		inactive_opacity = 0.6,
 		fullscreen_opacity = 1.0,

@@ -1,3 +1,7 @@
+local module_folder = "/home/marc/linux-config/scripts/"
+package.path = module_folder .. "?.lua;" .. package.path
+local util = require("util")
+
 hl.on("hyprland.start", function()
 	-- xdg-desktop-portal-hyprland (screen capture)
 	hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
@@ -25,3 +29,21 @@ end)
 hl.on("screenshare.state", function(active, type, name)
 	hl.notification.create({ text = name .. " " .. type .. " ", timeout = 2000 })
 end)
+
+-- hl.on("monitor.layout_changed", function()
+-- 	hl.notification.create({ text = "Monitor Added", timeout = 1000 })
+-- 	-- os.execute("sleep " .. tonumber(5))
+-- 	-- local timer = util.createTimer(10, 1, function() end)
+-- 	--
+-- 	-- while timer.isRunning() do
+-- 	-- end
+-- 	hl.notification.create({ text = "Timer finished", timeout = 1000 })
+-- 	hl.exec_cmd("lua /home/marc/linux-config/scripts/assign-workspaces.lua")
+-- 	hl.exec_cmd("lua /home/marc/linux-config/scripts/initialize_workspaces.lua")
+-- 	hl.exec_cmd("sh /home/marc/linux-config/scripts/select-workspace.sh 1")
+-- end)
+-- hl.on("monitor.removed", function()
+-- 	hl.exec_cmd("lua /home/marc/linux-config/scripts/assign-workspaces.lua")
+-- 	hl.exec_cmd("lua /home/marc/linux-config/scripts/initialize_workspaces.lua")
+-- 	hl.exec_cmd("sh /home/marc/linux-config/scripts/select-workspace.sh 1")
+-- end)
